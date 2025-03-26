@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainMenu">
+
+    <fragment
+        android:id="@+id/mainMenu"
+        android:name="com.justdeax.tetramine.fragment.MainMenu"
+        android:label="fragment_main_menu"
+        tools:layout="@layout/fragment_main_menu" >
+        <action
+            android:id="@+id/action_mainMenu_to_levels"
+            app:destination="@id/levels" />
+        <action
+            android:id="@+id/action_mainMenu_to_settings"
+            app:destination="@id/settings" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/levels"
+        android:name="com.justdeax.tetramine.fragment.Levels"
+        android:label="fragment_levels"
+        tools:layout="@layout/fragment_levels" />
+
+    <fragment
+        android:id="@+id/settings"
+        android:name="com.justdeax.tetramine.fragment.Settings"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+
+</navigation>
