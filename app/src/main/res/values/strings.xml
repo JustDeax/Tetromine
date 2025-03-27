@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">Tetramine</string>
+    <string name="version">Version: 0.1.4</string>
+
     <string name="play">Play</string>
     <string name="resume">Resume Game</string>
     <string name="statistics">Statistics</string>
-    <string name="appearance">Appearance</string>
-    <string name="settings">Settings</string>
+    <string name="settings">Settings &amp; Appearance</string>
     <string name="about">About</string>
 </resources>

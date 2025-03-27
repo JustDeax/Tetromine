@@ -11,24 +11,27 @@ import com.justdeax.tetramine.util.applySystemInsets
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private var screenHeight = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         enableEdgeToEdge()
         setContentView(binding.root)
         binding.main.applySystemInsets()
+
+        binding.main.post {
+            screenHeight = binding.main.height
+        }
     }
 
     override fun onStart() {
         super.onStart()
-        val screenHeight = binding.main.height
-
-        binding.logoLayout.layoutParams.height = screenHeight / 3
-        binding.logoLayout.requestLayout()
-
         val navController = findNavController(R.id.nav_host_fragment)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (screenHeight == 0) return@addOnDestinationChangedListener
+
             when (destination.id) {
                 R.id.mainMenu -> animateHeightChange(binding.logoLayout, screenHeight / 3)
                 R.id.levels -> animateHeightChange(binding.logoLayout, screenHeight / 6)
@@ -36,10 +39,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun animateHeightChange(
-        view: View,
-        newHeight: Int
-    ) {
+    fun animateHeightChange(view: View, newHeight: Int) {
         val startHeight = view.height
         val animator = ValueAnimator.ofInt(startHeight, newHeight)
 
