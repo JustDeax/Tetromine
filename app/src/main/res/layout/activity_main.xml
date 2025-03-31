@@ -14,17 +14,17 @@
         android:layout_width="match_parent"
         android:layout_height="220dp"
         android:gravity="center"
-        android:importantForAccessibility="no"
         android:orientation="vertical"
         tools:ignore="UseCompoundDrawables">
 
         <ImageView
             android:id="@+id/app_logo"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            app:tint="?attr/colorOnSurfaceVariant"
-            app:srcCompat="@drawable/round_widgets_24"
-            tools:ignore="ContentDescription" />
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:contentDescription="@string/app_name"
+            android:layout_margin="4dp"
+            app:tint="?attr/colorPrimary"
+            app:srcCompat="@drawable/ic_launcher_monochrome_nopadding" />
 
         <TextView
             android:id="@+id/app_name"
@@ -41,14 +41,14 @@
 
     </LinearLayout>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_margin="8dp"
-        app:cardBackgroundColor="?attr/colorSurfaceVariant"
+        app:cardBackgroundColor="?attr/colorSurfaceContainerLowest"
         app:cardCornerRadius="28dp"
-        app:contentPadding="8dp">
+        app:contentPadding="20dp">
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/nav_host_fragment"
@@ -58,6 +58,6 @@
             app:defaultNavHost="true"
             app:navGraph="@navigation/nav_graph" />
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>

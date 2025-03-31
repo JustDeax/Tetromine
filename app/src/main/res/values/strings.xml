@@ -7,4 +7,9 @@
     <string name="statistics">Statistics</string>
     <string name="settings">Settings &amp; Appearance</string>
     <string name="about">About</string>
+    
+    <string name="classic_level">Classic Game</string>
+    <string name="practice_level">Practice Game</string>
+    <string name="sprint_level">Sprint 40 Line</string>
+    <string name="modern_level">Modern With Freeze</string>
 </resources>

@@ -23,16 +23,24 @@ class MainMenu : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        play.setOnClickListener {
-//            val intent = Intent(requireContext(), GameActivity::class.java)
-//            startActivity(intent)
-//        }
-
         binding.playLevels.setOnClickListener {
             findNavController().navigate(R.id.action_mainMenu_to_levels)
         }
 
+//        binding.resumeGame.setOnClickListener {
+//            val intent = Intent(requireContext(), GameActivity::class.java)
+//            startActivity(intent)
+//        }
+
+        binding.statistics.setOnClickListener {
+
+        }
+
         binding.settings.setOnClickListener {
+            findNavController().navigate(R.id.action_mainMenu_to_settings)
+        }
+
+        binding.about.setOnClickListener {
             findNavController().navigate(R.id.action_mainMenu_to_settings)
         }
     }

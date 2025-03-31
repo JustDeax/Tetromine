@@ -19,10 +19,7 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(binding.root)
         binding.main.applySystemInsets()
-
-        binding.main.post {
-            screenHeight = binding.main.height
-        }
+        binding.main.post { screenHeight = binding.main.height }
     }
 
     override fun onStart() {
@@ -31,15 +28,14 @@ class MainActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             if (screenHeight == 0) return@addOnDestinationChangedListener
-
-            when (destination.id) {
-                R.id.mainMenu -> animateHeightChange(binding.logoLayout, screenHeight / 3)
-                R.id.levels -> animateHeightChange(binding.logoLayout, screenHeight / 6)
-            }
+            if (destination.id == R.id.mainMenu)
+                animateHeightChange(binding.logoLayout, screenHeight / 3)
+            else
+                animateHeightToWrapContent(binding.logoLayout)
         }
     }
 
-    fun animateHeightChange(view: View, newHeight: Int) {
+    private fun animateHeightChange(view: View, newHeight: Int) {
         val startHeight = view.height
         val animator = ValueAnimator.ofInt(startHeight, newHeight)
 
@@ -49,7 +45,15 @@ class MainActivity : AppCompatActivity() {
             view.requestLayout()
         }
 
-        animator.duration = 500
+        animator.duration = 250
         animator.start()
+    }
+
+    private fun animateHeightToWrapContent(view: View) {
+        view.measure(
+            View.MeasureSpec.makeMeasureSpec(view.width, View.MeasureSpec.EXACTLY),
+            View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
+        )
+        animateHeightChange(view, view.measuredHeight)
     }
 }
