@@ -9,11 +9,29 @@
     <string name="about">About</string>
 
     <string name="classic_level">Classic Game</string>
-    <string name="classic_level_desc">Classic version of the game</string>
+    <string name="classic_level_desc">Classic version of the game\n</string>
     <string name="practice_level">Practice Experience</string>
-    <string name="practice_level_desc">Practice playing at a certain tempo</string>
+    <string name="practice_level_desc">Practice playing at a certain tempo or just Relax</string>
     <string name="sprint_level">Sprint 40 Line</string>
-    <string name="sprint_level_desc">How fast can you clear 40 lines</string>
+    <string name="sprint_level_desc">How fast can you clear 40 lines\n</string>
     <string name="modern_level">Modern With Freeze</string>
-    <string name="modern_level_desc">Soon</string>
+    <string name="modern_level_desc">Modern Game with random speed, freezes, bombs and change board size</string>
+
+    <string name="theme">Theme</string>
+    <string-array name="theme_array">
+        <item>Dynamic theme</item>
+        <item>Light</item>
+        <item>Dark</item>
+    </string-array>
+    <string name="show_ghost">Show ghost piece</string>
+    <string name="sounds">Sounds</string>
+    <string name="music">Music</string>
+    <string name="vibration">Vibration</string>
+    <string name="control_type">Control Type</string>
+    <string-array name="control_type_array">
+        <item>Touch Gestures</item>
+        <item>Screen Buttons</item>
+    </string-array>
+    <string name="bi_directional_rotation">2-direction rotation</string>
+
 </resources>

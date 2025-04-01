@@ -19,7 +19,10 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(binding.root)
         binding.main.applySystemInsets()
-        binding.main.post { screenHeight = binding.main.height }
+        binding.main.post {
+            screenHeight = binding.main.height
+            animateHeightChange(binding.logoLayout, screenHeight / 3)
+        }
     }
 
     override fun onStart() {

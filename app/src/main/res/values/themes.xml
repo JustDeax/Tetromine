@@ -1,13 +1,15 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <style name="Base.Theme.Tetramine" parent="Theme.Material3.DayNight.NoActionBar">
     </style>
 
     <style name="Theme.Tetramine" parent="Base.Theme.Tetramine" />
+
     <style name="level_card_button" parent="Widget.MaterialComponents.CardView">
         <item name="android:layout_margin">14dp</item>
-        <item name="cardBackgroundColor">?attr/colorSurfaceContainerHigh</item>
+        <item name="cardBackgroundColor">?attr/colorPrimaryContainer</item>
         <item name="cardCornerRadius">21dp</item>
         <item name="cardElevation">18dp</item>
         <item name="contentPadding">18dp</item>
     </style>
+
 </resources>
