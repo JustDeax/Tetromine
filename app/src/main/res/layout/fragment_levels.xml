@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,18 +8,14 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="center">
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="12dp"
-            app:cardBackgroundColor="?attr/colorSurfaceContainerHigh"
-            app:cardCornerRadius="21dp"
-            app:cardElevation="18dp"
-            app:contentPadding="16dp">
+            style="@style/level_card_button">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -38,61 +33,96 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/TextAppearance.Material3.ActionBar.Subtitle"
-                    android:text="@string/classic_level" />
+                    android:textAlignment="center"
+                    android:text="@string/classic_level_desc" />
 
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/play_levels"
-            android:layout_gravity="center"
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_margin="12dp"
-            android:layout_weight="1"
-            android:text="@string/play"
-            app:icon="@drawable/round_play_arrow_24" />
+            android:layout_height="wrap_content"
+            style="@style/level_card_button">
 
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/resume_game"
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_margin="12dp"
-            android:layout_weight="1"
-            android:text="@string/resume"
-            app:icon="@drawable/round_pause_24" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/statistics"
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_margin="12dp"
-            android:layout_weight="1"
-            android:text="@string/statistics"
-            app:icon="@drawable/round_bar_chart_24" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.Material3.ActionBar.Title"
+                    android:textAlignment="center"
+                    android:text="@string/practice_level" />
 
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/settings"
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_margin="12dp"
-            android:layout_weight="1"
-            android:text="@string/settings"
-            app:icon="@drawable/round_settings_24" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.Material3.ActionBar.Subtitle"
+                    android:textAlignment="center"
+                    android:text="@string/practice_level_desc" />
 
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/about"
-            android:layout_gravity="center"
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_margin="12dp"
-            android:layout_weight="1"
-            android:text="@string/about"
-            app:icon="@drawable/round_star_24" />
+            android:layout_height="wrap_content"
+            style="@style/level_card_button">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.Material3.ActionBar.Title"
+                    android:textAlignment="center"
+                    android:text="@string/sprint_level" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.Material3.ActionBar.Subtitle"
+                    android:textAlignment="center"
+                    android:text="@string/sprint_level_desc" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/level_card_button">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.Material3.ActionBar.Title"
+                    android:textAlignment="center"
+                    android:text="@string/modern_level" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.Material3.ActionBar.Subtitle"
+                    android:textAlignment="center"
+                    android:text="@string/modern_level_desc" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
 

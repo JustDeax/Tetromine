@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import com.justdeax.tetramine.databinding.FragmentLevelsBinding
 
 class Levels : Fragment() {
-
     private var _binding: FragmentLevelsBinding? = null
     private val binding get() = _binding!!
 
@@ -21,7 +20,6 @@ class Levels : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
     }
 
     override fun onDestroyView() {

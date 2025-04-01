@@ -4,17 +4,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.justdeax.tetramine.databinding.FragmentSettingsBinding
+import com.justdeax.tetramine.databinding.FragmentAboutGameBinding
 
-class Settings : Fragment() {
-    private var _binding: FragmentSettingsBinding? = null
+class AboutGame : Fragment() {
+    private var _binding: FragmentAboutGameBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentSettingsBinding.inflate(inflater, container, false)
+        _binding = FragmentAboutGameBinding.inflate(inflater, container, false)
         return binding.root
     }
 

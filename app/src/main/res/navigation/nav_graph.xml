@@ -17,6 +17,12 @@
         <action
             android:id="@+id/action_mainMenu_to_settings"
             app:destination="@id/settings" />
+        <action
+            android:id="@+id/action_mainMenu_to_aboutGame"
+            app:destination="@id/aboutGame" />
+        <action
+            android:id="@+id/action_mainMenu_to_statistics"
+            app:destination="@id/statistics" />
     </fragment>
 
     <fragment
@@ -30,5 +36,17 @@
         android:name="com.justdeax.tetramine.fragment.Settings"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/aboutGame"
+        android:name="com.justdeax.tetramine.fragment.AboutGame"
+        android:label="fragment_about_game"
+        tools:layout="@layout/fragment_about_game" />
+
+    <fragment
+        android:id="@+id/statistics"
+        android:name="com.justdeax.tetramine.fragment.Statistics"
+        android:label="fragment_statistics"
+        tools:layout="@layout/fragment_statistics" />
 
 </navigation>

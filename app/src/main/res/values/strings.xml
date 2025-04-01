@@ -7,9 +7,13 @@
     <string name="statistics">Statistics</string>
     <string name="settings">Settings &amp; Appearance</string>
     <string name="about">About</string>
-    
+
     <string name="classic_level">Classic Game</string>
-    <string name="practice_level">Practice Game</string>
+    <string name="classic_level_desc">Classic version of the game</string>
+    <string name="practice_level">Practice Experience</string>
+    <string name="practice_level_desc">Practice playing at a certain tempo</string>
     <string name="sprint_level">Sprint 40 Line</string>
+    <string name="sprint_level_desc">How fast can you clear 40 lines</string>
     <string name="modern_level">Modern With Freeze</string>
+    <string name="modern_level_desc">Soon</string>
 </resources>

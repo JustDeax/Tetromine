@@ -33,7 +33,7 @@ class MainMenu : Fragment() {
 //        }
 
         binding.statistics.setOnClickListener {
-
+            findNavController().navigate(R.id.action_mainMenu_to_statistics)
         }
 
         binding.settings.setOnClickListener {
@@ -41,7 +41,7 @@ class MainMenu : Fragment() {
         }
 
         binding.about.setOnClickListener {
-            findNavController().navigate(R.id.action_mainMenu_to_settings)
+            findNavController().navigate(R.id.action_mainMenu_to_aboutGame)
         }
     }
 
