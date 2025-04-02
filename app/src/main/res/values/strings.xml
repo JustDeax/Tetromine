@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Tetramine</string>
     <string name="version">Version: 0.1.4</string>
+    <string name="not_available">not available</string>
 
     <string name="play">Play</string>
     <string name="resume">Resume Game</string>
@@ -8,14 +9,15 @@
     <string name="settings">Settings &amp; Appearance</string>
     <string name="about">About</string>
 
-    <string name="classic_level">Classic Game</string>
-    <string name="classic_level_desc">Classic version of the game\n</string>
-    <string name="practice_level">Practice Experience</string>
-    <string name="practice_level_desc">Practice playing at a certain tempo or just Relax</string>
-    <string name="sprint_level">Sprint 40 Line</string>
-    <string name="sprint_level_desc">How fast can you clear 40 lines\n</string>
-    <string name="modern_level">Modern With Freeze</string>
-    <string name="modern_level_desc">Modern Game with random speed, freezes, bombs and change board size</string>
+    <string name="choose_mode">Choose mode</string>
+    <string name="classic_mode">Classic Game</string>
+    <string name="classic_mode_desc">Classic version of the game\n</string>
+    <string name="practice_mode">Practice Experience</string>
+    <string name="practice_mode_desc">Practice playing at a certain tempo or just Relax</string>
+    <string name="sprint_mode">Sprint 40 Line</string>
+    <string name="sprint_mode_desc">How fast can you clear 40 lines\n</string>
+    <string name="modern_mode">Modern With Freeze</string>
+    <string name="modern_mode_desc">Modern Game with random speed, freezes, bombs and change board size</string>
 
     <string name="theme">Theme</string>
     <string-array name="theme_array">
@@ -33,5 +35,19 @@
         <item>Screen Buttons</item>
     </string-array>
     <string name="bi_directional_rotation">2-direction rotation</string>
+
+    <string name="page_total">Total</string>
+    <string name="page_1game">Max in 1 Game</string>
+    <string name="score">Score</string>
+    <string name="lines">Lines</string>
+    <string name="pieces">Pieces</string>
+    <string name="four_lines">Four Lines</string>
+    <string name="t_spins">T Spins</string>
+    <string name="combos">Combos</string>
+
+    <string name="about_1">This is the mobile modern version of tetris</string>
+    <string name="about_2">This is a classic arcade puzzle game where you have to stack falling tetromino - four-block pieces, create solid lines out of them and play for the score. The original mechanics are retained here, with smooth controls, but with a modern, minimalist design</string>
+    <string name="author">Author: https://github.com/JustDeax</string>
+    <string name="source_code">Source code: https://github.com/JustDeax/Tetromine</string>
 
 </resources>

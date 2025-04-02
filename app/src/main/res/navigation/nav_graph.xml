@@ -11,9 +11,10 @@
         android:name="com.justdeax.tetramine.fragment.MainMenu"
         android:label="fragment_main_menu"
         tools:layout="@layout/fragment_main_menu" >
+
         <action
-            android:id="@+id/action_mainMenu_to_levels"
-            app:destination="@id/levels" />
+            android:id="@+id/action_mainMenu_to_chooseGame"
+            app:destination="@id/chooseMode" />
         <action
             android:id="@+id/action_mainMenu_to_settings"
             app:destination="@id/settings" />
@@ -23,19 +24,20 @@
         <action
             android:id="@+id/action_mainMenu_to_statistics"
             app:destination="@id/statistics" />
+
     </fragment>
 
     <fragment
-        android:id="@+id/levels"
-        android:name="com.justdeax.tetramine.fragment.Levels"
-        android:label="fragment_levels"
-        tools:layout="@layout/fragment_levels" />
+        android:id="@+id/chooseMode"
+        android:name="com.justdeax.tetramine.fragment.ChooseMode"
+        android:label="fragment_choose_mode"
+        tools:layout="@layout/fragment_choose_mode" />
 
     <fragment
         android:id="@+id/settings"
         android:name="com.justdeax.tetramine.fragment.Settings"
         android:label="fragment_settings"
-        tools:layout="@layout/fragment_main_menu" />
+        tools:layout="@layout/fragment_settings" />
 
     <fragment
         android:id="@+id/aboutGame"

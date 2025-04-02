@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.Levels">
+    tools:context=".fragment.ChooseMode">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,6 +18,7 @@
             style="@style/level_card_button">
 
             <LinearLayout
+                android:id="@+id/classic"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -27,20 +28,21 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/TextAppearance.Material3.ActionBar.Title"
                     android:textAlignment="center"
-                    android:text="@string/classic_level" />
+                    android:text="@string/classic_mode" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/TextAppearance.Material3.ActionBar.Subtitle"
                     android:textAlignment="center"
-                    android:text="@string/classic_level_desc" />
+                    android:text="@string/classic_mode_desc" />
 
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/practice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/level_card_button">
@@ -55,20 +57,21 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/TextAppearance.Material3.ActionBar.Title"
                     android:textAlignment="center"
-                    android:text="@string/practice_level" />
+                    android:text="@string/practice_mode" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/TextAppearance.Material3.ActionBar.Subtitle"
                     android:textAlignment="center"
-                    android:text="@string/practice_level_desc" />
+                    android:text="@string/practice_mode_desc" />
 
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/sprint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/level_card_button">
@@ -83,20 +86,21 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/TextAppearance.Material3.ActionBar.Title"
                     android:textAlignment="center"
-                    android:text="@string/sprint_level" />
+                    android:text="@string/sprint_mode" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/TextAppearance.Material3.ActionBar.Subtitle"
                     android:textAlignment="center"
-                    android:text="@string/sprint_level_desc" />
+                    android:text="@string/sprint_mode_desc" />
 
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/modern"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/level_card_button">
@@ -111,14 +115,14 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/TextAppearance.Material3.ActionBar.Title"
                     android:textAlignment="center"
-                    android:text="@string/modern_level" />
+                    android:text="@string/modern_mode" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/TextAppearance.Material3.ActionBar.Subtitle"
                     android:textAlignment="center"
-                    android:text="@string/modern_level_desc" />
+                    android:text="@string/modern_mode_desc" />
 
             </LinearLayout>
 

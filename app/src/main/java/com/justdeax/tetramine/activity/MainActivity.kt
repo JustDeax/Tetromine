@@ -5,6 +5,7 @@ import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
+import com.google.android.material.color.DynamicColors
 import com.justdeax.tetramine.R
 import com.justdeax.tetramine.databinding.ActivityMainBinding
 import com.justdeax.tetramine.util.applySystemInsets
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         enableEdgeToEdge()
         setContentView(binding.root)
+        DynamicColors.applyToActivitiesIfAvailable(application)
         binding.main.applySystemInsets()
         binding.main.post {
             screenHeight = binding.main.height
@@ -30,11 +32,33 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (screenHeight == 0) return@addOnDestinationChangedListener
-            if (destination.id == R.id.mainMenu)
-                animateHeightChange(binding.logoLayout, screenHeight / 3)
-            else
-                animateHeightToWrapContent(binding.logoLayout)
+            when (destination.id) {
+                R.id.mainMenu -> {
+                    binding.title.visibility = View.GONE
+                }
+                R.id.chooseMode -> {
+                    binding.title.text = getString(R.string.choose_mode)
+                    binding.title.visibility = View.VISIBLE
+                }
+                R.id.statistics -> {
+                    binding.title.text = getString(R.string.statistics)
+                    binding.title.visibility = View.VISIBLE
+                }
+                R.id.settings -> {
+                    binding.title.text = getString(R.string.settings)
+                    binding.title.visibility = View.VISIBLE
+                }
+                R.id.aboutGame -> {
+                    binding.title.text = getString(R.string.about)
+                    binding.title.visibility = View.VISIBLE
+                }
+            }
+
+            if (screenHeight != 0) {
+                if (destination.id == R.id.mainMenu)
+                     animateHeightChange(binding.logoLayout, screenHeight / 3)
+                else animateHeightToWrapContent(binding.logoLayout)
+            }
         }
     }
 

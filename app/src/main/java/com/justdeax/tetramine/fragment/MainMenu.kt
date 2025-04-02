@@ -22,9 +22,8 @@ class MainMenu : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.playLevels.setOnClickListener {
-            findNavController().navigate(R.id.action_mainMenu_to_levels)
+        binding.chooseMode.setOnClickListener {
+            findNavController().navigate(R.id.action_mainMenu_to_chooseGame)
         }
 
 //        binding.resumeGame.setOnClickListener {
