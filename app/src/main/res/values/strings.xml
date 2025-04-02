@@ -19,6 +19,16 @@
     <string name="modern_mode">Modern With Freeze</string>
     <string name="modern_mode_desc">Modern Game with random speed, freezes, bombs and change board size</string>
 
+    <string name="page_total">Total</string>
+    <string name="page_1game">Max in 1 Game</string>
+    <string name="score">Score</string>
+    <string name="lines">Lines</string>
+    <string name="pieces">Pieces</string>
+    <string name="four_lines">Four Lines</string>
+    <string name="t_spins">T Spins</string>
+    <string name="combos">Combos</string>
+    <string name="zero">0</string>
+
     <string name="theme">Theme</string>
     <string-array name="theme_array">
         <item>Dynamic theme</item>
@@ -35,15 +45,6 @@
         <item>Screen Buttons</item>
     </string-array>
     <string name="bi_directional_rotation">2-direction rotation</string>
-
-    <string name="page_total">Total</string>
-    <string name="page_1game">Max in 1 Game</string>
-    <string name="score">Score</string>
-    <string name="lines">Lines</string>
-    <string name="pieces">Pieces</string>
-    <string name="four_lines">Four Lines</string>
-    <string name="t_spins">T Spins</string>
-    <string name="combos">Combos</string>
 
     <string name="about_1">This is the mobile modern version of tetris</string>
     <string name="about_2">This is a classic arcade puzzle game where you have to stack falling tetromino - four-block pieces, create solid lines out of them and play for the score. The original mechanics are retained here, with smooth controls, but with a modern, minimalist design</string>
