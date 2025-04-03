@@ -13,14 +13,14 @@
     <string name="classic_mode">Classic Game</string>
     <string name="classic_mode_desc">Classic version of the game\n</string>
     <string name="practice_mode">Practice Experience</string>
-    <string name="practice_mode_desc">Practice playing at a certain tempo or just Relax</string>
+    <string name="practice_mode_desc">Practice playing at a certain tempo or just relax</string>
     <string name="sprint_mode">Sprint 40 Line</string>
     <string name="sprint_mode_desc">How fast can you clear 40 lines\n</string>
     <string name="modern_mode">Modern With Freeze</string>
     <string name="modern_mode_desc">Modern Game with random speed, freezes, bombs and change board size</string>
 
     <string name="page_total">Total</string>
-    <string name="page_1game">Max in 1 Game</string>
+    <string name="page_1game">1 Game</string>
     <string name="score">Score</string>
     <string name="lines">Lines</string>
     <string name="pieces">Pieces</string>
@@ -47,8 +47,11 @@
     <string name="bi_directional_rotation">2-direction rotation</string>
 
     <string name="about_1">This is the mobile modern version of tetris</string>
-    <string name="about_2">This is a classic arcade puzzle game where you have to stack falling tetromino - four-block pieces, create solid lines out of them and play for the score. The original mechanics are retained here, with smooth controls, but with a modern, minimalist design</string>
-    <string name="author">Author: https://github.com/JustDeax</string>
-    <string name="source_code">Source code: https://github.com/JustDeax/Tetromine</string>
+    <string name="about_2">"""
+This is a classic arcade puzzle game where you have to stack falling tetromino — 4-block pieces, create solid lines out of them and play for the score.
+The original mechanics are retained here, with smooth controls, but with a modern, minimalist design
+    """</string>
+    <string name="author">Author:</string>
+    <string name="source_code">Source code:</string>
 
 </resources>

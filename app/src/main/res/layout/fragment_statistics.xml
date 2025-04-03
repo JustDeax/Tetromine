@@ -12,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:paddingTop="8dp"
         app:checkedChip="@id/total"
         app:chipSpacingHorizontal="0dp"
         app:selectionRequired="true"
@@ -24,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/page_total"
-            android:textSize="18sp"
+            android:textSize="22sp"
             app:shapeAppearance="@style/ShapeAppearanceOverlay.Material3.Corner.Left" />
 
         <com.google.android.material.chip.Chip
@@ -33,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/page_1game"
-            android:textSize="18sp"
+            android:textSize="22sp"
             app:shapeAppearance="@style/ShapeAppearanceOverlay.Material3.Corner.Right" />
 
     </com.google.android.material.chip.ChipGroup>
@@ -52,42 +53,42 @@
 
             <TextView
                 android:id="@+id/score"
-                style="@style/statistics_text"
+                style="@style/StatisticsText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/score" />
 
             <TextView
                 android:id="@+id/lines"
-                style="@style/statistics_text"
+                style="@style/StatisticsText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/lines" />
 
             <TextView
                 android:id="@+id/pieces"
-                style="@style/statistics_text"
+                style="@style/StatisticsText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/pieces" />
 
             <TextView
                 android:id="@+id/four_lines"
-                style="@style/statistics_text"
+                style="@style/StatisticsText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/four_lines" />
 
             <TextView
                 android:id="@+id/t_spins"
-                style="@style/statistics_text"
+                style="@style/StatisticsText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/t_spins" />
 
             <TextView
                 android:id="@+id/combos"
-                style="@style/statistics_text"
+                style="@style/StatisticsText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/combos" />
@@ -101,42 +102,42 @@
 
             <TextView
                 android:id="@+id/score_number"
-                style="@style/statistics_number"
+                style="@style/StatisticsNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/zero" />
 
             <TextView
                 android:id="@+id/lines_number"
-                style="@style/statistics_number"
+                style="@style/StatisticsNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/zero" />
 
             <TextView
                 android:id="@+id/pieces_number"
-                style="@style/statistics_number"
+                style="@style/StatisticsNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/zero" />
 
             <TextView
                 android:id="@+id/four_lines_number"
-                style="@style/statistics_number"
+                style="@style/StatisticsNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/zero" />
 
             <TextView
                 android:id="@+id/t_spins_number"
-                style="@style/statistics_number"
+                style="@style/StatisticsNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/zero" />
 
             <TextView
                 android:id="@+id/combos_number"
-                style="@style/statistics_number"
+                style="@style/StatisticsNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/zero" />

@@ -15,7 +15,7 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/level_card_button">
+            style="@style/CardButton">
 
             <LinearLayout
                 android:id="@+id/classic"
@@ -45,7 +45,7 @@
             android:id="@+id/practice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/level_card_button">
+            style="@style/CardButton">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -74,7 +74,7 @@
             android:id="@+id/sprint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/level_card_button">
+            style="@style/CardButton">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -103,7 +103,7 @@
             android:id="@+id/modern"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/level_card_button">
+            style="@style/CardButton">
 
             <LinearLayout
                 android:layout_width="match_parent"

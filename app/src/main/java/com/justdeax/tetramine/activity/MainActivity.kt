@@ -49,8 +49,7 @@ class MainActivity : AppCompatActivity() {
                     binding.title.visibility = View.VISIBLE
                 }
                 R.id.aboutGame -> {
-                    binding.title.text = getString(R.string.about)
-                    binding.title.visibility = View.VISIBLE
+                    binding.title.visibility = View.GONE
                 }
             }
 
