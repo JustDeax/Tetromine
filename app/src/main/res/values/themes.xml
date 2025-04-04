@@ -14,13 +14,27 @@
         <item name="strokeWidth">0dp</item>
     </style>
 
-    <style name="StatisticsText">
-        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Title</item>
+    <style name="MonospacedTitle" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">34sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="LargeDisplay" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="StatisticsTitle" parent="TextAppearance.AppCompat.Title">
         <item name="android:textSize">32sp</item>
         <item name="android:layout_margin">8dp</item>
     </style>
 
-    <style name="StatisticsNumber" parent="StatisticsText">
+    <style name="StatisticsNumber" parent="StatisticsTitle">
         <item name="android:textColor">?attr/colorOnPrimaryContainer</item>
     </style>
 

@@ -22,23 +22,27 @@ class ChooseMode : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.classic.setOnClickListener {
-            notAvailable(getString(R.string.classic_mode))
-        }
-        binding.practice.setOnClickListener {
-            notAvailable(getString(R.string.practice_mode))
-        }
-        binding.sprint.setOnClickListener {
-            notAvailable(getString(R.string.sprint_mode))
-        }
-        binding.modern.setOnClickListener {
-            notAvailable(getString(R.string.modern_mode))
+        binding.apply {
+            classic.setOnClickListener {
+                notAvailable(getString(R.string.classic_mode))
+            }
+            practice.setOnClickListener {
+                notAvailable(getString(R.string.practice_mode))
+            }
+            sprint.setOnClickListener {
+                notAvailable(getString(R.string.sprint_mode))
+            }
+            modern.setOnClickListener {
+                notAvailable(getString(R.string.modern_mode))
+            }
         }
     }
 
     private fun notAvailable(mode: String) {
         Toast.makeText(
-            activity, mode + " " + getString(R.string.not_available), Toast.LENGTH_SHORT
+            activity,
+            mode + " " + getString(R.string.not_available),
+            Toast.LENGTH_SHORT
         ).show()
     }
 

@@ -53,45 +53,45 @@
 
             <TextView
                 android:id="@+id/score"
-                style="@style/StatisticsText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/score" />
+                android:text="@string/score"
+                style="@style/StatisticsTitle" />
 
             <TextView
                 android:id="@+id/lines"
-                style="@style/StatisticsText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/lines" />
+                android:text="@string/lines"
+                style="@style/StatisticsTitle" />
 
             <TextView
                 android:id="@+id/pieces"
-                style="@style/StatisticsText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/pieces" />
+                android:text="@string/pieces"
+                style="@style/StatisticsTitle" />
 
             <TextView
                 android:id="@+id/four_lines"
-                style="@style/StatisticsText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/four_lines" />
+                android:text="@string/four_lines"
+                style="@style/StatisticsTitle" />
 
             <TextView
                 android:id="@+id/t_spins"
-                style="@style/StatisticsText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/t_spins" />
+                android:text="@string/t_spins"
+                style="@style/StatisticsTitle" />
 
             <TextView
                 android:id="@+id/combos"
-                style="@style/StatisticsText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/combos" />
+                android:text="@string/combos"
+                style="@style/StatisticsTitle" />
 
         </LinearLayout>
 
@@ -102,45 +102,45 @@
 
             <TextView
                 android:id="@+id/score_number"
-                style="@style/StatisticsNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/zero" />
+                android:text="@string/zero"
+                style="@style/StatisticsNumber" />
 
             <TextView
                 android:id="@+id/lines_number"
-                style="@style/StatisticsNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/zero" />
+                android:text="@string/zero"
+                style="@style/StatisticsNumber" />
 
             <TextView
                 android:id="@+id/pieces_number"
-                style="@style/StatisticsNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/zero" />
+                android:text="@string/zero"
+                style="@style/StatisticsNumber" />
 
             <TextView
                 android:id="@+id/four_lines_number"
-                style="@style/StatisticsNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/zero" />
+                android:text="@string/zero"
+                style="@style/StatisticsNumber" />
 
             <TextView
                 android:id="@+id/t_spins_number"
-                style="@style/StatisticsNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/zero" />
+                android:text="@string/zero"
+                style="@style/StatisticsNumber" />
 
             <TextView
                 android:id="@+id/combos_number"
-                style="@style/StatisticsNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/zero" />
+                android:text="@string/zero"
+                style="@style/StatisticsNumber" />
 
         </LinearLayout>
 

@@ -32,36 +32,34 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id == R.id.mainMenu) {
+                animateHeightChange(binding.logoLayout, screenHeight / 3)
+                binding.title.visibility = View.GONE
+            } else {
+                animateHeightToWrapContent(binding.logoLayout)
+                binding.title.visibility = View.VISIBLE
+            }
+
             when (destination.id) {
-                R.id.mainMenu -> {
-                    binding.title.visibility = View.GONE
-                }
+                R.id.mainMenu -> { }
                 R.id.chooseMode -> {
                     binding.title.text = getString(R.string.choose_mode)
-                    binding.title.visibility = View.VISIBLE
                 }
                 R.id.statistics -> {
                     binding.title.text = getString(R.string.statistics)
-                    binding.title.visibility = View.VISIBLE
                 }
                 R.id.settings -> {
                     binding.title.text = getString(R.string.settings)
-                    binding.title.visibility = View.VISIBLE
                 }
                 R.id.aboutGame -> {
-                    binding.title.visibility = View.GONE
+                    binding.title.text = getString(R.string.about_1)
                 }
-            }
-
-            if (screenHeight != 0) {
-                if (destination.id == R.id.mainMenu)
-                     animateHeightChange(binding.logoLayout, screenHeight / 3)
-                else animateHeightToWrapContent(binding.logoLayout)
             }
         }
     }
 
     private fun animateHeightChange(view: View, newHeight: Int) {
+        if (newHeight == 0) return
         val startHeight = view.height
         val animator = ValueAnimator.ofInt(startHeight, newHeight)
 
@@ -70,7 +68,6 @@ class MainActivity : AppCompatActivity() {
             view.layoutParams.height = updatedHeight
             view.requestLayout()
         }
-
         animator.duration = 250
         animator.start()
     }

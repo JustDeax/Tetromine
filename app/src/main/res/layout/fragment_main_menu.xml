@@ -19,6 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:text="@string/play"
+            android:paddingEnd="48dp"
             app:icon="@drawable/round_play_arrow_24" />
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
@@ -27,6 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
             android:text="@string/resume"
+            android:paddingEnd="48dp"
             android:enabled="false"
             app:icon="@drawable/round_pause_24" />
 
@@ -36,6 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:text="@string/statistics"
+            android:paddingEnd="48dp"
             app:icon="@drawable/round_bar_chart_24" />
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
@@ -44,6 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:text="@string/settings"
+            android:paddingEnd="48dp"
             app:icon="@drawable/round_settings_24" />
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
@@ -53,6 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:text="@string/about"
+            android:paddingEnd="48dp"
             app:icon="@drawable/round_star_24" />
 
         <TextView

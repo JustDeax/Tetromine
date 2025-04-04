@@ -22,25 +22,23 @@ class MainMenu : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.chooseMode.setOnClickListener {
-            findNavController().navigate(R.id.action_mainMenu_to_chooseGame)
-        }
-
+        binding.apply {
+            chooseMode.setOnClickListener {
+                findNavController().navigate(R.id.action_mainMenu_to_chooseGame)
+            }
 //        binding.resumeGame.setOnClickListener {
 //            val intent = Intent(requireContext(), GameActivity::class.java)
 //            startActivity(intent)
 //        }
-
-        binding.statistics.setOnClickListener {
-            findNavController().navigate(R.id.action_mainMenu_to_statistics)
-        }
-
-        binding.settings.setOnClickListener {
-            findNavController().navigate(R.id.action_mainMenu_to_settings)
-        }
-
-        binding.about.setOnClickListener {
-            findNavController().navigate(R.id.action_mainMenu_to_aboutGame)
+            statistics.setOnClickListener {
+                findNavController().navigate(R.id.action_mainMenu_to_statistics)
+            }
+            settings.setOnClickListener {
+                findNavController().navigate(R.id.action_mainMenu_to_settings)
+            }
+            about.setOnClickListener {
+                findNavController().navigate(R.id.action_mainMenu_to_aboutGame)
+            }
         }
     }
 

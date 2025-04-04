@@ -11,11 +11,11 @@
 
     <string name="choose_mode">Choose mode</string>
     <string name="classic_mode">Classic Game</string>
-    <string name="classic_mode_desc">Classic version of the game\n</string>
+    <string name="classic_mode_desc">Classic version of the game</string>
     <string name="practice_mode">Practice Experience</string>
     <string name="practice_mode_desc">Practice playing at a certain tempo or just relax</string>
     <string name="sprint_mode">Sprint 40 Line</string>
-    <string name="sprint_mode_desc">How fast can you clear 40 lines\n</string>
+    <string name="sprint_mode_desc">How fast can you clear 40 lines</string>
     <string name="modern_mode">Modern With Freeze</string>
     <string name="modern_mode_desc">Modern Game with random speed, freezes, bombs and change board size</string>
 
