@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         enableEdgeToEdge()
         setContentView(binding.root)
-        DynamicColors.applyToActivitiesIfAvailable(application)
         binding.main.applySystemInsets()
         binding.main.post {
             screenHeight = binding.main.height

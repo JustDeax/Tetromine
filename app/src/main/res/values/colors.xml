@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="ic_launcher_background">#000000</color>
+
+    <color name="tetris_cyan">#30E0E0</color>
+    <color name="tetris_yellow">#E0E030</color>
+    <color name="tetris_magenta">#E030E0</color>
+    <color name="tetris_orange">#E07030</color>
+    <color name="tetris_blue">#3030E0</color>
+    <color name="tetris_green">#30E030</color>
+    <color name="tetris_red">#E03030</color>
+    <color name="tetris_ghost">#A0A0A0</color>
+    <color name="tetris_empty">#000000</color>
+
 </resources>

@@ -17,7 +17,7 @@
     <string name="sprint_mode">Sprint 40 Line</string>
     <string name="sprint_mode_desc">How fast can you clear 40 lines</string>
     <string name="modern_mode">Modern With Freeze</string>
-    <string name="modern_mode_desc">Modern Game with random speed, freezes, bombs and change board size</string>
+    <string name="modern_mode_desc">Modern Game with random speed, freezes and bombs</string>
 
     <string name="page_total">Total</string>
     <string name="page_1game">1 Game</string>

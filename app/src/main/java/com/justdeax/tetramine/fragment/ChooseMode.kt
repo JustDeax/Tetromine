@@ -1,4 +1,5 @@
 package com.justdeax.tetramine.fragment
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.justdeax.tetramine.R
+import com.justdeax.tetramine.activity.GameActivity
 import com.justdeax.tetramine.databinding.FragmentChooseModeBinding
 
 class ChooseMode : Fragment() {
@@ -23,8 +25,10 @@ class ChooseMode : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
+            val game = Intent(activity, GameActivity::class.java)
+
             classic.setOnClickListener {
-                notAvailable(getString(R.string.classic_mode))
+                startActivity(game)
             }
             practice.setOnClickListener {
                 notAvailable(getString(R.string.practice_mode))
