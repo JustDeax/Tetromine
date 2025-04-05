@@ -5,6 +5,14 @@
     <style name="Theme.Tetramine" parent="Base.Theme.Tetramine">
     </style>
 
+    <style name="CardBoard" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_margin">8dp</item>
+        <item name="contentPadding">20dp</item>
+        <item name="strokeWidth">0.35dp</item>
+        <item name="cardBackgroundColor">?attr/colorSurfaceContainerLowest</item>
+        <item name="cardCornerRadius">28dp</item>
+    </style>
+
     <style name="CardButton" parent="Widget.MaterialComponents.CardView">
         <item name="android:layout_margin">14dp</item>
         <item name="cardBackgroundColor">?attr/colorPrimaryContainer</item>
