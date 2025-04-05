@@ -5,7 +5,6 @@ import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
-import com.google.android.material.color.DynamicColors
 import com.justdeax.tetramine.R
 import com.justdeax.tetramine.databinding.ActivityMainBinding
 import com.justdeax.tetramine.util.applySystemInsets
@@ -18,11 +17,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         enableEdgeToEdge()
-        setContentView(binding.root)
-        binding.main.applySystemInsets()
-        binding.main.post {
-            screenHeight = binding.main.height
-            animateHeightChange(binding.logoLayout, screenHeight / 3)
+        binding.apply {
+            setContentView(root)
+            main.applySystemInsets()
+            main.post {
+                screenHeight = main.height
+                animateHeightChange(logoLayout, screenHeight / 3)
+            }
         }
     }
 
@@ -40,7 +41,9 @@ class MainActivity : AppCompatActivity() {
             }
 
             when (destination.id) {
-                R.id.mainMenu -> { }
+                R.id.mainMenu -> {
+                    binding.title.text = ""
+                }
                 R.id.chooseMode -> {
                     binding.title.text = getString(R.string.choose_mode)
                 }

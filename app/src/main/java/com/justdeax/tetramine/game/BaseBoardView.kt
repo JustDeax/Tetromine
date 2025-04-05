@@ -10,9 +10,9 @@ abstract class BaseBoardView(context: Context, attrs: AttributeSet? = null) : Vi
     protected abstract var rows: Int
     protected abstract var cols: Int
     protected abstract var board: Array<IntArray>
+    private var colors = intArrayOf()
     private val cellSpacing = 4f
     private val cornerRadius = 20f
-    private var colors = intArrayOf()
     private val paint = Paint().apply {
         style = Paint.Style.FILL
         isAntiAlias = true

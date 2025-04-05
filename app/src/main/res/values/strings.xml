@@ -29,22 +29,22 @@
     <string name="combos">Combos</string>
     <string name="zero">0</string>
 
-    <string name="theme">Theme</string>
-    <string-array name="theme_array">
-        <item>Dynamic theme</item>
-        <item>Light</item>
-        <item>Dark</item>
-    </string-array>
-    <string name="show_ghost">Show ghost piece</string>
-    <string name="sounds">Sounds</string>
-    <string name="music">Music</string>
-    <string name="vibration">Vibration</string>
-    <string name="control_type">Control Type</string>
-    <string-array name="control_type_array">
-        <item>Touch Gestures</item>
-        <item>Screen Buttons</item>
-    </string-array>
-    <string name="bi_directional_rotation">2-direction rotation</string>
+<!--    <string name="theme">Theme</string>-->
+<!--    <string-array name="theme_array">-->
+<!--        <item>Dynamic theme</item>-->
+<!--        <item>Light</item>-->
+<!--        <item>Dark</item>-->
+<!--    </string-array>-->
+<!--    <string name="show_ghost">Show ghost piece</string>-->
+<!--    <string name="sounds">Sounds</string>-->
+<!--    <string name="music">Music</string>-->
+<!--    <string name="vibration">Vibration</string>-->
+<!--    <string name="control_type">Control Type</string>-->
+<!--    <string-array name="control_type_array">-->
+<!--        <item>Touch Gestures</item>-->
+<!--        <item>Screen Buttons</item>-->
+<!--    </string-array>-->
+<!--    <string name="bi_directional_rotation">2-direction rotation</string>-->
 
     <string name="about_1">This is the mobile modern version of tetris</string>
     <string name="about_2">"""

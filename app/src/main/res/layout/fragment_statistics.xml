@@ -21,21 +21,21 @@
 
         <com.google.android.material.chip.Chip
             android:id="@+id/total"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/page_total"
             android:textSize="22sp"
-            app:shapeAppearance="@style/ShapeAppearanceOverlay.Material3.Corner.Left" />
+            app:shapeAppearance="@style/ShapeAppearanceOverlay.Material3.Corner.Left"
+            style="@style/Widget.MaterialComponents.Chip.Choice" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/one_game"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/page_1game"
             android:textSize="22sp"
-            app:shapeAppearance="@style/ShapeAppearanceOverlay.Material3.Corner.Right" />
+            app:shapeAppearance="@style/ShapeAppearanceOverlay.Material3.Corner.Right"
+            style="@style/Widget.MaterialComponents.Chip.Choice" />
 
     </com.google.android.material.chip.ChipGroup>
 
