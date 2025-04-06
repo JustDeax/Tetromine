@@ -1,6 +1,7 @@
 package com.justdeax.tetramine.activity
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.MotionEvent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
@@ -8,11 +9,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.justdeax.tetramine.R
 import com.justdeax.tetramine.databinding.ActivityGameBinding
+import com.justdeax.tetramine.databinding.DialogPauseGameBinding
 import com.justdeax.tetramine.game.TetromineGameFactory
 import com.justdeax.tetramine.game.TetromineGameViewModel
 import com.justdeax.tetramine.util.applySystemInsets
+import com.justdeax.tetramine.util.notAvailable
+import com.justdeax.tetramine.util.padArrayTo2x4
+import com.justdeax.tetramine.util.setStatistics
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import kotlin.math.abs
@@ -46,12 +52,8 @@ class GameActivity : AppCompatActivity() {
         binding.apply {
             setContentView(root)
             main.applySystemInsets()
-
             board.setColors(boardColor + colors)
             preview.setColors(previewColor + colors)
-            //startStopButton.setOnClickListener { tetrisGame.startGame() }
-            //pauseButton.setOnClickListener { tetrisGame.stopGame() }
-            //resumeButton.setOnClickListener { tetrisGame.resumeGame() }
 
             setControls()
             lifecycleScope.launch {
@@ -59,18 +61,13 @@ class GameActivity : AppCompatActivity() {
                     game.board.collectLatest { newBoard ->
                         board.updateBoard(newBoard)
                         statistics.text = setStatistics(game.lines, game.score)
-                        preview.updateBoard(padArrayTo3x4(game.previousPiece.shape))
+                        preview.updateBoard(padArrayTo2x4(game.previousPiece.shape))
                     }
                 }
             }
             game.startGame()
+            pause.setOnClickListener { showPauseDialog() }
         }
-    }
-
-    private fun setStatistics(lines: Int, score: Int): String {
-        val lines =  getString(R.string.lines) + ": " + lines.toString()
-        val score =  getString(R.string.score) + ": " + score.toString()
-        return "$lines\n$score"
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -119,13 +116,31 @@ class GameActivity : AppCompatActivity() {
         }
     }
 
-    fun padArrayTo3x4(array: Array<IntArray>): Array<IntArray> {
-        return Array(3) { rowIndex ->
-            val row = array.getOrNull(rowIndex) ?: intArrayOf()
-            val paddedRow = IntArray(4)
-            for (i in row.indices)
-                if (i < 4) paddedRow[4 - row.size + i] = row[i]
-            paddedRow
+    private fun showPauseDialog() {
+        game.stopGame()
+
+        val dialogBinding = DialogPauseGameBinding.inflate(LayoutInflater.from(this))
+        val dialog = MaterialAlertDialogBuilder(this)
+            .setView(dialogBinding.root)
+            .setOnDismissListener { game.resumeGame() }
+            .create()
+
+        //dialogBinding.preview.updateBoard(padArrayTo3x4(game.previousPiece.shape))
+        dialogBinding.statistics.text = setStatistics(game.lines, game.score)
+
+        dialogBinding.resume.setOnClickListener {
+            dialog.dismiss()
         }
+
+        dialogBinding.help.setOnClickListener {
+            notAvailable(this, getString(R.string.help))
+        }
+
+        dialogBinding.exit.setOnClickListener {
+            dialog.dismiss()
+            finish()
+        }
+
+        dialog.show()
     }
 }

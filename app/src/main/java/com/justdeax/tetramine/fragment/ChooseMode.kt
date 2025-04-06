@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.justdeax.tetramine.R
 import com.justdeax.tetramine.activity.GameActivity
 import com.justdeax.tetramine.databinding.FragmentChooseModeBinding
+import com.justdeax.tetramine.util.notAvailable
 
 class ChooseMode : Fragment() {
     private var _binding: FragmentChooseModeBinding? = null
@@ -31,23 +31,15 @@ class ChooseMode : Fragment() {
                 startActivity(game)
             }
             practice.setOnClickListener {
-                notAvailable(getString(R.string.practice_mode))
+                notAvailable(requireContext(), getString(R.string.practice_mode))
             }
             sprint.setOnClickListener {
-                notAvailable(getString(R.string.sprint_mode))
+                notAvailable(requireContext(), getString(R.string.sprint_mode))
             }
             modern.setOnClickListener {
-                notAvailable(getString(R.string.modern_mode))
+                notAvailable(requireContext(), getString(R.string.modern_mode))
             }
         }
-    }
-
-    private fun notAvailable(mode: String) {
-        Toast.makeText(
-            activity,
-            mode + " " + getString(R.string.not_available),
-            Toast.LENGTH_SHORT
-        ).show()
     }
 
     override fun onDestroyView() {

@@ -48,7 +48,7 @@ class TetromineGameViewModel(rows: Int, cols: Int): ViewModel() {
         _board.value = tetromine.getBoardWithPiece()
     }
 
-    private fun resetGame() {
+    fun resetGame() {
         tetromine.resetGame()
         _board.value = tetromine.getBoardWithPiece()
     }
