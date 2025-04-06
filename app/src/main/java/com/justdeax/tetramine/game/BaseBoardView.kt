@@ -58,7 +58,7 @@ abstract class BaseBoardView(context: Context, attrs: AttributeSet? = null) : Vi
         invalidate()
     }
 
-    fun updateBoard(newBoard: Array<IntArray>) {
+    open fun updateBoard(newBoard: Array<IntArray>) {
         board = newBoard
         invalidate()
     }

@@ -10,8 +10,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.justdeax.tetramine.R
 import com.justdeax.tetramine.databinding.ActivityGameBinding
-import com.justdeax.tetramine.game.TetrisGameFactory
-import com.justdeax.tetramine.game.TetrisGameViewModel
+import com.justdeax.tetramine.game.TetromineGameFactory
+import com.justdeax.tetramine.game.TetromineGameViewModel
 import com.justdeax.tetramine.util.applySystemInsets
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -21,8 +21,8 @@ class GameActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGameBinding
     private val rows = 20
     private val cols = 10
-    private val game: TetrisGameViewModel by viewModels {
-        TetrisGameFactory(rows, cols)
+    private val game: TetromineGameViewModel by viewModels {
+        TetromineGameFactory(rows, cols)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,7 +58,8 @@ class GameActivity : AppCompatActivity() {
                 repeatOnLifecycle(Lifecycle.State.STARTED) {
                     game.board.collectLatest { newBoard ->
                         board.updateBoard(newBoard)
-                        statistics.text = setStatistics(1, game.score)
+                        statistics.text = setStatistics(game.lines, game.score)
+                        preview.updateBoard(padArrayTo3x4(game.previousPiece.shape))
                     }
                 }
             }
@@ -115,6 +116,16 @@ class GameActivity : AppCompatActivity() {
                 }
             }
             true
+        }
+    }
+
+    fun padArrayTo3x4(array: Array<IntArray>): Array<IntArray> {
+        return Array(3) { rowIndex ->
+            val row = array.getOrNull(rowIndex) ?: intArrayOf()
+            val paddedRow = IntArray(4)
+            for (i in row.indices)
+                if (i < 4) paddedRow[4 - row.size + i] = row[i]
+            paddedRow
         }
     }
 }

@@ -11,7 +11,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_marginHorizontal="16dp"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <TextView
@@ -20,9 +21,10 @@
             android:layout_height="70dp"
             android:fontFamily="monospace"
             android:textStyle="bold"
+            android:textSize="15dp"
             android:gravity="center_vertical"
-            android:autoSizeTextType="uniform"
-            tools:text="Lines: 000 \nScore: 0000000 \nLevel: 1" />
+            tools:text="Lines: 000 \nScore: 0000000 \nLevel: 1"
+            tools:ignore="SpUsage" />
 
         <Space
             android:layout_width="0dp"
@@ -32,7 +34,7 @@
         <com.justdeax.tetramine.game.PreviewView
             android:id="@+id/preview"
             android:layout_width="wrap_content"
-            android:layout_height="70dp" />
+            android:layout_height="50dp" />
 
     </LinearLayout>
 
