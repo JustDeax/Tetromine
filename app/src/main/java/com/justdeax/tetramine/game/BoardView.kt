@@ -5,33 +5,44 @@ import android.graphics.Paint
 import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
+import com.justdeax.tetramine.R
 
-abstract class BaseBoardView(context: Context, attrs: AttributeSet? = null) : View(context, attrs) {
-    protected abstract var rows: Int
-    protected abstract var cols: Int
-    protected abstract var board: Array<IntArray>
-    private var colors = intArrayOf()
+class BoardView(context: Context, attrs: AttributeSet? = null) : View(context, attrs) {
+    private var rows = 20
+    private var cols = 10
     private val cellSpacing = 4f
     private val cornerRadius = 20f
     private val paint = Paint().apply {
         style = Paint.Style.FILL
         isAntiAlias = true
     }
+    private val colors: IntArray = intArrayOf(
+        context.getColor(R.color.empty),
+        context.getColor(R.color.cyan),
+        context.getColor(R.color.yellow),
+        context.getColor(R.color.magenta),
+        context.getColor(R.color.orange),
+        context.getColor(R.color.blue),
+        context.getColor(R.color.green),
+        context.getColor(R.color.red),
+        context.getColor(R.color.grey)
+    )
     private val rect = RectF()
+    var board: Array<IntArray> = Array(rows) { IntArray(cols) }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         val width = MeasureSpec.getSize(widthMeasureSpec)
         val height = MeasureSpec.getSize(heightMeasureSpec)
-        val calculatedHeight = width * (rows.toFloat() / cols.toFloat())
+        val calculatedHeight = width * (rows / cols)
         val finalWidth: Int
         val finalHeight: Int
 
         if (calculatedHeight > height) {
             finalHeight = height
-            finalWidth = (height * (cols.toFloat() / rows.toFloat())).toInt()
+            finalWidth = height / (rows / cols)
         } else {
             finalWidth = width
-            finalHeight = calculatedHeight.toInt()
+            finalHeight = calculatedHeight
         }
         setMeasuredDimension(finalWidth, finalHeight)
     }
@@ -41,21 +52,14 @@ abstract class BaseBoardView(context: Context, attrs: AttributeSet? = null) : Vi
         val cellSize = (width / cols.toFloat()) - cellSpacing
         for (row in 0 until rows) {
             for (col in 0 until cols) {
-                val left = col * (cellSize + cellSpacing)
-                val top = row * (cellSize + cellSpacing)
-                val right = (col + 1) * (cellSize + cellSpacing) - cellSpacing
-                val bottom = (row + 1) * (cellSize + cellSpacing) - cellSpacing
-
                 paint.color = colors[(board[row][col])]
-                rect.set(left, top, right, bottom)
+                rect.set(
+                    col * (cellSize + cellSpacing), row * (cellSize + cellSpacing),
+                    (col + 1) * (cellSize + cellSpacing) - cellSpacing, (row + 1) * (cellSize + cellSpacing) - cellSpacing
+                )
                 canvas.drawRoundRect(rect, cornerRadius, cornerRadius, paint)
             }
         }
-    }
-
-    fun setColors(newColors: IntArray) {
-        colors = newColors
-        invalidate()
     }
 
     fun updateBoard(newBoard: Array<IntArray>) {

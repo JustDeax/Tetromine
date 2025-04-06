@@ -1,11 +1,10 @@
 package com.justdeax.tetramine.game
 
-class Tetromine(private val rows: Int, private val cols: Int) {
+class Tetris(private val rows: Int, private val cols: Int) {
     private var board = Array(rows) { IntArray(cols) }
     var currentPiece = Tetromino.emptyPiece(); private set
-    var previousPiece = Tetromino.emptyPiece(); private set
+    var previousPiece = Tetromino.getRandomPiece() ; private set
     var isGameOver = false ; private set
-    var lines = 0; private set
     var score = 0
 
     init { spawnPiece() }
@@ -13,9 +12,8 @@ class Tetromine(private val rows: Int, private val cols: Int) {
     fun resetGame() {
         board = Array(rows) { IntArray(cols) }
         currentPiece = Tetromino.emptyPiece()
-        previousPiece = Tetromino.randomPiece()
+        previousPiece = Tetromino.getRandomPiece()
         isGameOver = false
-        lines = 0
         score = 0
         spawnPiece()
     }
@@ -71,17 +69,16 @@ class Tetromine(private val rows: Int, private val cols: Int) {
         while (board.size < rows)
             board = arrayOf(IntArray(cols)) + board
         when (clearedLines) {
-            1 -> score += single
-            2 -> score += double
-            3 -> score += triple
-            4 -> score += tetromine
+            1 -> score += 100
+            2 -> score += 200
+            3 -> score += 300
+            4 -> score += 400
         }
-        lines += clearedLines
     }
 
     private fun spawnPiece() {
         currentPiece = previousPiece
-        previousPiece = Tetromino.randomPiece()
+        previousPiece = Tetromino.getRandomPiece()
         currentPiece.row = 0
         currentPiece.column = cols / 2 - (currentPiece.shape[0].size / 2)
         if (!isValidMove(currentPiece, currentPiece.row, currentPiece.column))

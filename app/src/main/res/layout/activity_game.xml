@@ -29,10 +29,10 @@
             android:layout_height="70dp"
             android:layout_weight="1" />
 
-        <com.justdeax.tetramine.game.PreviewBoardView
-            android:id="@+id/preview"
-            android:layout_width="100dp"
-            android:layout_height="70dp" />
+<!--        <com.justdeax.tetramine.game.PreviewBoardView-->
+<!--            android:id="@+id/preview"-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="70dp" />-->
 
     </LinearLayout>
 
@@ -43,7 +43,7 @@
         android:layout_gravity="center"
         style="@style/CardBoard">
 
-        <com.justdeax.tetramine.game.TetrisBoardView
+        <com.justdeax.tetramine.game.BoardView
             android:id="@+id/board_view"
             android:layout_gravity="center"
             android:layout_width="match_parent"
