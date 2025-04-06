@@ -30,34 +30,39 @@ class GameActivity : AppCompatActivity() {
         binding = ActivityGameBinding.inflate(layoutInflater)
         enableEdgeToEdge()
 
-//        val colors = intArrayOf(
-//            getColor(R.color.cyan),
-//            getColor(R.color.yellow),
-//            getColor(R.color.magenta),
-//            getColor(R.color.orange),
-//            getColor(R.color.blue),
-//            getColor(R.color.green),
-//            getColor(R.color.red),
-//            getColor(R.color.grey)
-//        )
+        val colors = intArrayOf(
+            getColor(R.color.cyan),
+            getColor(R.color.yellow),
+            getColor(R.color.magenta),
+            getColor(R.color.orange),
+            getColor(R.color.blue),
+            getColor(R.color.green),
+            getColor(R.color.red),
+            getColor(R.color.ghost)
+        )
+        val boardColor = intArrayOf(getColor(R.color.empty))
+        val previewColor = intArrayOf(getColor(R.color.invisible))
 
         binding.apply {
             setContentView(root)
             main.applySystemInsets()
-            setControls()
+
+            board.setColors(boardColor + colors)
+            preview.setColors(previewColor + colors)
             //startStopButton.setOnClickListener { tetrisGame.startGame() }
             //pauseButton.setOnClickListener { tetrisGame.stopGame() }
             //resumeButton.setOnClickListener { tetrisGame.resumeGame() }
 
+            setControls()
             lifecycleScope.launch {
-                game.startGame()
                 repeatOnLifecycle(Lifecycle.State.STARTED) {
-                    game.board.collectLatest { board ->
-                        boardView.updateBoard(board)
+                    game.board.collectLatest { newBoard ->
+                        board.updateBoard(newBoard)
                         statistics.text = setStatistics(1, game.score)
                     }
                 }
             }
+            game.startGame()
         }
     }
 
@@ -69,14 +74,14 @@ class GameActivity : AppCompatActivity() {
 
     @SuppressLint("ClickableViewAccessibility")
     private fun setControls() {
-        val boardView = binding.boardView
-        val xSensitivity = 1.00
-        val ySensitivity = 0.75
+        val board = binding.board
+        val xSensitivity = 0.55
+        val ySensitivity = 0.40
         val halfCols = cols / 2
         val halfRows = rows / 2
         var lastTouchX = 0f
         var lastTouchY = 0f
-        boardView.setOnTouchListener { _, event ->
+        board.setOnTouchListener { _, event ->
             when (event.action) {
                 MotionEvent.ACTION_DOWN -> {
                     lastTouchX = event.x
@@ -85,27 +90,26 @@ class GameActivity : AppCompatActivity() {
                 MotionEvent.ACTION_MOVE -> {
                     val diffX = event.x - lastTouchX
                     val diffY = event.y - lastTouchY
-                    val thresholdX = boardView.width / halfCols * xSensitivity
-                    val thresholdY = boardView.height / halfRows * ySensitivity
+                    val thresholdX = board.width / halfCols * xSensitivity
+                    val thresholdY = board.height / halfRows * ySensitivity
 
                     if (abs(diffX) > thresholdX && abs(diffY) < thresholdY) {
-                        if (diffX > 0) game.moveRight()
-                        else game.moveLeft()
+                        if (diffX > 0)
+                            game.moveRight()
+                        else
+                            game.moveLeft()
                         lastTouchX = event.x
-                    }
-
-                    if (diffY > thresholdY) {
+                    } else if (diffY > thresholdY) {
                         game.dropPiece()
                         lastTouchY = event.y
                     }
-
-                    boardView.invalidate()
+                    board.invalidate()
                 }
                 MotionEvent.ACTION_UP -> {
                     val diffX = abs(event.x - lastTouchX)
                     val diffY = abs(event.y - lastTouchY)
-                    if (diffX < 5 && diffY < 5) game.rotatePiece()
-
+                    if (diffX < 3 && diffY < 3)
+                        game.rotatePiece()
                     lastTouchX = -1f
                     lastTouchY = -1f
                 }

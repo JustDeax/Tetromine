@@ -3,14 +3,14 @@
     <color name="ic_launcher_background">#000000</color>
 
     <color name="empty">#000000</color>
-    <color name="cyan">#30E0E0</color>
-    <color name="yellow">#E0E030</color>
-    <color name="magenta">#E030E0</color>
-    <color name="orange">#E07030</color>
-    <color name="blue">#3030E0</color>
-    <color name="green">#30E030</color>
-    <color name="red">#E03030</color>
-    <color name="grey">#A0A0A0</color>
+    <color name="cyan">#DEDECE</color> <!-- Bone -->
+    <color name="yellow">#FFD500</color> <!-- Cyber Yellow -->
+    <color name="magenta">#BF1F3B</color> <!-- Cardinal -->
+    <color name="orange">#FF971C</color> <!-- Beer -->
+    <color name="blue">#0341AE</color> <!-- Cobalt Blue -->
+    <color name="green">#4B9039</color> <!-- May Green -->
+    <color name="red">#FF3213</color> <!-- RYB Red -->
+    <color name="ghost">#E4A0A0A0</color>
     <color name="invisible">#00FFFFFF</color>
 
 </resources>
