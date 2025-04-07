@@ -10,6 +10,7 @@ abstract class BaseBoardView(context: Context, attrs: AttributeSet? = null) : Vi
     protected abstract var rows: Int
     protected abstract var cols: Int
     protected abstract var board: Array<IntArray>
+
     private var colors = intArrayOf()
     private val cellSpacing = 4f
     private val cornerRadius = 20f
@@ -22,16 +23,17 @@ abstract class BaseBoardView(context: Context, attrs: AttributeSet? = null) : Vi
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         val width = MeasureSpec.getSize(widthMeasureSpec)
         val height = MeasureSpec.getSize(heightMeasureSpec)
-        val calculatedHeight = width * (rows.toFloat() / cols.toFloat())
+        val ratio = rows.toFloat() / cols
+        val targetHeight = width * ratio
         val finalWidth: Int
         val finalHeight: Int
 
-        if (calculatedHeight > height) {
+        if (targetHeight > height) {
             finalHeight = height
-            finalWidth = (height * (cols.toFloat() / rows.toFloat())).toInt()
+            finalWidth = (height / ratio).toInt()
         } else {
             finalWidth = width
-            finalHeight = calculatedHeight.toInt()
+            finalHeight = targetHeight.toInt()
         }
         setMeasuredDimension(finalWidth, finalHeight)
     }
@@ -41,14 +43,16 @@ abstract class BaseBoardView(context: Context, attrs: AttributeSet? = null) : Vi
         val cellSize = (width / cols.toFloat()) - cellSpacing
         for (row in 0 until rows) {
             for (col in 0 until cols) {
-                val left = col * (cellSize + cellSpacing)
-                val top = row * (cellSize + cellSpacing)
-                val right = (col + 1) * (cellSize + cellSpacing) - cellSpacing
-                val bottom = (row + 1) * (cellSize + cellSpacing) - cellSpacing
-
-                paint.color = colors[(board[row][col])]
-                rect.set(left, top, right, bottom)
-                canvas.drawRoundRect(rect, cornerRadius, cornerRadius, paint)
+                val value = board[row][col]
+                if (value in colors.indices) {
+                    paint.color = colors[value]
+                    val left = col * (cellSize + cellSpacing)
+                    val top = row * (cellSize + cellSpacing)
+                    val right = left + cellSize
+                    val bottom = top + cellSize
+                    rect.set(left, top, right, bottom)
+                    canvas.drawRoundRect(rect, cornerRadius, cornerRadius, paint)
+                }
             }
         }
     }

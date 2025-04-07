@@ -3,6 +3,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MotionEvent
+import android.view.View
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
@@ -29,6 +30,9 @@ class GameActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGameBinding
     private var dialogPauseBinding: DialogPauseGameBinding? = null
     private var dialogPauseGame: AlertDialog? = null
+    private var colors = intArrayOf()
+    private var boardColor = intArrayOf()
+    private var previewColor = intArrayOf()
     private val rows = 20
     private val cols = 10
     private val game: TetromineGameViewModel by viewModels {
@@ -39,7 +43,7 @@ class GameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityGameBinding.inflate(layoutInflater)
         enableEdgeToEdge()
-        val colors = intArrayOf(
+        colors = intArrayOf(
             getColor(R.color.cyan),
             getColor(R.color.yellow),
             getColor(R.color.magenta),
@@ -49,43 +53,42 @@ class GameActivity : AppCompatActivity() {
             getColor(R.color.red),
             getColor(R.color.ghost)
         )
-        val boardColor = intArrayOf(getColor(R.color.empty))
-        val previewColor = intArrayOf(getColor(R.color.invisible))
+        boardColor = intArrayOf(getColor(R.color.empty))
+        previewColor = intArrayOf(getColor(R.color.invisible))
 
         binding.apply {
             setContentView(root)
             main.applySystemInsets()
             board.setColors(boardColor + colors)
             preview.setColors(previewColor + colors)
+            board.setControls()
+            pause.setOnClickListener { showPauseDialog() }
 
-            setControls()
             lifecycleScope.launch {
                 repeatOnLifecycle(Lifecycle.State.STARTED) {
                     game.board.collectLatest { newBoard ->
                         board.updateBoard(newBoard)
-                        statistics.text = setStatistics(game.lines, game.score)
                         preview.updateBoard(padArrayTo2x4(game.previousPiece.shape))
+                        statistics.text = setStatistics(game.lines, game.score)
                     }
                 }
             }
             game.resumeGame()
-            pause.setOnClickListener { showPauseDialog(boardColor + colors) }
         }
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() { showPauseDialog(boardColor + colors) }
+            override fun handleOnBackPressed() { showPauseDialog() }
         })
     }
 
     @SuppressLint("ClickableViewAccessibility")
-    private fun setControls() {
-        val board = binding.board
+    private fun View.setControls() {
         val xSensitivity = 0.55
         val ySensitivity = 0.40
         val halfCols = cols / 2
         val halfRows = rows / 2
         var lastTouchX = 0f
         var lastTouchY = 0f
-        board.setOnTouchListener { _, event ->
+        this.setOnTouchListener { _, event ->
             when (event.action) {
                 MotionEvent.ACTION_DOWN -> {
                     lastTouchX = event.x
@@ -94,8 +97,8 @@ class GameActivity : AppCompatActivity() {
                 MotionEvent.ACTION_MOVE -> {
                     val diffX = event.x - lastTouchX
                     val diffY = event.y - lastTouchY
-                    val thresholdX = board.width / halfCols * xSensitivity
-                    val thresholdY = board.height / halfRows * ySensitivity
+                    val thresholdX = this.width / halfCols * xSensitivity
+                    val thresholdY = this.height / halfRows * ySensitivity
 
                     if (abs(diffX) > thresholdX && abs(diffY) < thresholdY) {
                         if (diffX > 0)
@@ -107,7 +110,7 @@ class GameActivity : AppCompatActivity() {
                         game.dropPiece()
                         lastTouchY = event.y
                     }
-                    board.invalidate()
+                    this.invalidate()
                 }
                 MotionEvent.ACTION_UP -> {
                     val diffX = abs(event.x - lastTouchX)
@@ -122,7 +125,7 @@ class GameActivity : AppCompatActivity() {
         }
     }
 
-    private fun showPauseDialog(colors: IntArray) {
+    private fun showPauseDialog() {
         game.stopGame()
         if (dialogPauseBinding == null || dialogPauseGame == null) {
             dialogPauseBinding = DialogPauseGameBinding.inflate(LayoutInflater.from(this))
@@ -149,7 +152,7 @@ class GameActivity : AppCompatActivity() {
             }
         }
         dialogPauseBinding?.apply {
-            preview.setColors(colors)
+            preview.setColors(boardColor + colors)
             preview.updateBoard(padArrayTo2x4(game.currentPiece.shape))
             statistics.text = setStatistics(game.lines, game.score)
             dialogPauseGame?.show()
@@ -157,7 +160,7 @@ class GameActivity : AppCompatActivity() {
     }
 
     override fun onStop() {
+        showPauseDialog()
         super.onStop()
-        game.stopGame()
     }
 }
