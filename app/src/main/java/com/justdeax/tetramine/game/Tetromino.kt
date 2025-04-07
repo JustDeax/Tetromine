@@ -15,7 +15,7 @@ class Tetromino(val shape: Array<IntArray>, var row: Int = 0, var column: Int = 
     }
 
     companion object {
-        private val TETROMINO_SHAPES = listOf(
+        val TETROMINO_SHAPES = listOf(
             arrayOf( // I
                 intArrayOf(0, 0, 0, 0),
                 intArrayOf(1, 1, 1, 1),

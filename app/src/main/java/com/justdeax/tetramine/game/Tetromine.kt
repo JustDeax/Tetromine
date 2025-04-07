@@ -5,6 +5,7 @@ class Tetromine(private val rows: Int, private val cols: Int) {
     var currentPiece = Tetromino.emptyPiece() ; private set
     var previousPiece = Tetromino.randomPiece() ; private set
     var isGameOver = false ; private set
+    var comboCount = -1 ; private set
     var lines = 0 ; private set
     var score = 0
 
@@ -40,8 +41,15 @@ class Tetromine(private val rows: Int, private val cols: Int) {
 
     fun rotatePiece() {
         val rotated = currentPiece.rotate()
-        if (isValidMove(rotated, currentPiece.row, currentPiece.column))
+        if (isValidMove(rotated, currentPiece.row, currentPiece.column)) {
             currentPiece = rotated
+        } else {
+            val validKick = listOf(1,-1).firstOrNull { isValidMove(rotated, currentPiece.row, currentPiece.column + it) }
+            if (validKick != null) {
+                currentPiece = rotated
+                currentPiece.column += validKick
+            }
+        }
     }
 
     private fun movePiece(dRow: Int, dCol: Int): Boolean {
@@ -70,12 +78,22 @@ class Tetromine(private val rows: Int, private val cols: Int) {
         val clearedLines = rows - board.size
         while (board.size < rows)
             board = arrayOf(IntArray(cols)) + board
-        when (clearedLines) {
-            1 -> score += single
-            2 -> score += double
-            3 -> score += triple
-            4 -> score += tetromine
-        }
+
+        if (clearedLines > 0) {
+            comboCount += 1
+            score += combo * comboCount
+
+            when (clearedLines) {
+                1 -> score += single
+                2 -> score += double
+                3 -> score += triple
+                4 -> score += tetromine
+            }
+            if (board.all { row -> row.all { it == 0 } })
+                score += perfectClear
+        } else
+            comboCount = -1
+
         lines += clearedLines
     }
 

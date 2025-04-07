@@ -8,7 +8,9 @@
     <string name="statistics">Statistics</string>
     <string name="settings">Settings &amp; Appearance</string>
     <string name="about">About</string>
+
     <string name="exit">Exit</string>
+    <string name="restart">Restart</string>
     <string name="help">Help Controllers</string>
 
     <string name="choose_mode">Choose mode</string>
@@ -22,7 +24,7 @@
     <string name="modern_mode_desc">Modern Game with random speed, freezes and bombs</string>
 
     <string name="page_total">Total</string>
-    <string name="page_1game">1 Game</string>
+    <string name="page_1game">Best</string>
     <string name="score">Score</string>
     <string name="lines">Lines</string>
     <string name="pieces">Pieces</string>

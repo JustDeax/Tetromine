@@ -26,7 +26,6 @@ class ChooseMode : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
             val game = Intent(activity, GameActivity::class.java)
-
             classic.setOnClickListener {
                 startActivity(game)
             }

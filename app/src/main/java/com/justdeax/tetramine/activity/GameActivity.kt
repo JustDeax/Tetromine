@@ -3,8 +3,10 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MotionEvent
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -25,6 +27,8 @@ import kotlin.math.abs
 
 class GameActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGameBinding
+    private var dialogPauseBinding: DialogPauseGameBinding? = null
+    private var dialogPauseGame: AlertDialog? = null
     private val rows = 20
     private val cols = 10
     private val game: TetromineGameViewModel by viewModels {
@@ -35,7 +39,6 @@ class GameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityGameBinding.inflate(layoutInflater)
         enableEdgeToEdge()
-
         val colors = intArrayOf(
             getColor(R.color.cyan),
             getColor(R.color.yellow),
@@ -65,9 +68,12 @@ class GameActivity : AppCompatActivity() {
                     }
                 }
             }
-            game.startGame()
-            pause.setOnClickListener { showPauseDialog() }
+            game.resumeGame()
+            pause.setOnClickListener { showPauseDialog(boardColor + colors) }
         }
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() { showPauseDialog(boardColor + colors) }
+        })
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -116,31 +122,42 @@ class GameActivity : AppCompatActivity() {
         }
     }
 
-    private fun showPauseDialog() {
+    private fun showPauseDialog(colors: IntArray) {
         game.stopGame()
+        if (dialogPauseBinding == null || dialogPauseGame == null) {
+            dialogPauseBinding = DialogPauseGameBinding.inflate(LayoutInflater.from(this))
+            dialogPauseGame = MaterialAlertDialogBuilder(this)
+                .setView(dialogPauseBinding?.root)
+                .setOnDismissListener { game.resumeGame() }
+                .create()
 
-        val dialogBinding = DialogPauseGameBinding.inflate(LayoutInflater.from(this))
-        val dialog = MaterialAlertDialogBuilder(this)
-            .setView(dialogBinding.root)
-            .setOnDismissListener { game.resumeGame() }
-            .create()
-
-        //dialogBinding.preview.updateBoard(padArrayTo3x4(game.previousPiece.shape))
-        dialogBinding.statistics.text = setStatistics(game.lines, game.score)
-
-        dialogBinding.resume.setOnClickListener {
-            dialog.dismiss()
+            dialogPauseBinding?.apply {
+                resume.setOnClickListener {
+                    dialogPauseGame?.dismiss()
+                }
+                help.setOnClickListener {
+                    notAvailable(this@GameActivity, getString(R.string.help))
+                }
+                exit.setOnClickListener {
+                    dialogPauseGame?.dismiss()
+                    finish()
+                }
+                restart.setOnClickListener {
+                    dialogPauseGame?.dismiss()
+                    game.startGame()
+                }
+            }
         }
-
-        dialogBinding.help.setOnClickListener {
-            notAvailable(this, getString(R.string.help))
+        dialogPauseBinding?.apply {
+            preview.setColors(colors)
+            preview.updateBoard(padArrayTo2x4(game.currentPiece.shape))
+            statistics.text = setStatistics(game.lines, game.score)
+            dialogPauseGame?.show()
         }
+    }
 
-        dialogBinding.exit.setOnClickListener {
-            dialog.dismiss()
-            finish()
-        }
-
-        dialog.show()
+    override fun onStop() {
+        super.onStop()
+        game.stopGame()
     }
 }
