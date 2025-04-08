@@ -9,6 +9,10 @@
     <string name="settings">Settings &amp; Appearance</string>
     <string name="about">About</string>
 
+    <string name="game_over" translatable="false">GAME OVER</string>
+    <string name="o_score_o" translatable="false">Score</string>
+    <string name="o_lines_o" translatable="false">Lines</string>
+    <string name="view_game">View Game</string>
     <string name="exit">Exit</string>
     <string name="restart">Restart</string>
     <string name="help">Help Controllers</string>
@@ -24,13 +28,13 @@
     <string name="modern_mode_desc">Modern Game with random speed, freezes and bombs</string>
 
     <string name="page_total">Total</string>
-    <string name="page_1game">Best</string>
+    <string name="page_game">Best</string>
     <string name="score">Score</string>
     <string name="lines">Lines</string>
     <string name="pieces">Pieces</string>
     <string name="four_lines">Four Lines</string>
     <string name="t_spins">T Spins</string>
-    <string name="combos">Combos</string>
+    <string name="combo">Combo</string>
     <string name="zero">0</string>
 
 <!--    <string name="theme">Theme</string>-->

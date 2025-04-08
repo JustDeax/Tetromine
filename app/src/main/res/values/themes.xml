@@ -2,8 +2,9 @@
     <style name="Base.Theme.Tetramine" parent="Theme.Material3.DynamicColors.DayNight.NoActionBar">
     </style>
 
-    <style name="Theme.Tetramine" parent="Base.Theme.Tetramine">
-    </style>
+    <style name="Theme.Tetramine" parent="Base.Theme.Tetramine" />
+
+    <color name="ic_launcher_background">#000000</color>
 
     <style name="CardBoard" parent="Widget.MaterialComponents.CardView">
         <item name="android:layout_margin">8dp</item>
@@ -29,7 +30,6 @@
         <item name="android:textAllCaps">true</item>
         <item name="android:textSize">34sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:singleLine">true</item>
     </style>
 
     <style name="LargeDisplay" parent="TextAppearance.AppCompat.Title">

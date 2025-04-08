@@ -10,16 +10,28 @@
 
     <com.justdeax.tetramine.game.PreviewView
         android:id="@+id/preview"
+        android:visibility="visible"
         android:layout_width="match_parent"
         android:layout_height="75dp"
-        android:layout_marginBottom="20dp"
         android:layout_gravity="center" />
+
+    <TextView
+        android:id="@+id/game_over"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="45sp"
+        android:text="@string/game_over"
+        tools:visibility="visible"
+        style="@style/MonospacedTitle" />
 
     <TextView
         android:id="@+id/statistics"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
         android:textSize="22sp"
         tools:text="Lines:000 \nScore:0000000 \nLevel:0"

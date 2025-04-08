@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="ic_launcher_background">#000000</color>
-
-    <color name="empty">#000000</color>
-    <color name="cyan">#DEDECE</color> <!-- Bone -->
-    <color name="yellow">#FFD500</color> <!-- Cyber Yellow -->
-    <color name="magenta">#9F2B68</color> <!-- Amaranth -->
-    <color name="orange">#FF971C</color> <!-- Beer -->
-    <color name="blue">#0341AE</color> <!-- Cobalt Blue -->
-    <color name="green">#4B9039</color> <!-- May Green -->
-    <color name="red">#FF3213</color> <!-- RYB Red -->
-    <color name="ghost">#E4A0A0A0</color>
+    <color name="empty">#FFFFFF</color>
+    <color name="cyan">#B2DFDB</color>
+    <color name="yellow">#FFEB3B</color>
+    <color name="magenta">#E040FB</color>
+    <color name="orange">#FF9800</color>
+    <color name="blue">#2196F3</color>
+    <color name="green">#4CAF50</color>
+    <color name="red">#F44336</color>
+    <color name="ghost">#4DA0A0A0</color>
     <color name="invisible">#00FFFFFF</color>
 
 </resources>
