@@ -15,7 +15,7 @@
     <string name="view_game">View Game</string>
     <string name="exit">Exit</string>
     <string name="restart">Restart</string>
-    <string name="help">Help Controllers</string>
+    <string name="help">Help with controllers</string>
 
     <string name="choose_mode">Choose mode</string>
     <string name="classic_mode">Classic Game</string>

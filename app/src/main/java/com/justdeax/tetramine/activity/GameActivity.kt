@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
+import android.widget.ImageView
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
@@ -12,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.bumptech.glide.Glide
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.justdeax.tetramine.R
 import com.justdeax.tetramine.databinding.ActivityGameBinding
@@ -20,7 +22,6 @@ import com.justdeax.tetramine.game.TetromineGameFactory
 import com.justdeax.tetramine.game.TetromineGameViewModel
 import com.justdeax.tetramine.game.Tetromino
 import com.justdeax.tetramine.util.applySystemInsets
-import com.justdeax.tetramine.util.notAvailable
 import com.justdeax.tetramine.util.padArray2x4
 import com.justdeax.tetramine.util.setStatistics
 import kotlinx.coroutines.flow.collectLatest
@@ -125,7 +126,7 @@ class GameActivity : AppCompatActivity() {
                 dialogGame?.dismiss()
             }
             help.setOnClickListener {
-                notAvailable(this@GameActivity, getString(R.string.help))
+                helpDialog()
             }
             exit.setOnClickListener {
                 dialogGame?.dismiss()
@@ -136,6 +137,24 @@ class GameActivity : AppCompatActivity() {
                 game.startGame()
             }
         }
+    }
+
+    private fun helpDialog() {
+        val imageView = ImageView(this)
+
+        Glide.with(this)
+            .asGif()
+            .load(R.drawable.help_with_controllers)
+            .into(imageView)
+
+        val dialog = MaterialAlertDialogBuilder(this)
+            .setView(imageView)
+            .setPositiveButton("OK") { dialogInterface, _ ->
+                dialogInterface.dismiss()
+            }
+            .create()
+
+        dialog.show()
     }
 
     @SuppressLint("ClickableViewAccessibility")

@@ -37,7 +37,7 @@
             android:gravity="center"
             tools:text="Lines:000   \nScore:000000" />
 
-        <com.justdeax.tetramine.game.PreviewView
+        <com.justdeax.tetramine.game.view.PreviewView
             android:id="@+id/preview"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
@@ -52,7 +52,7 @@
         android:layout_gravity="center"
         style="@style/CardBoard">
 
-        <com.justdeax.tetramine.game.BoardView
+        <com.justdeax.tetramine.game.view.BoardView
             android:id="@+id/board"
             android:layout_gravity="center"
             android:layout_width="match_parent"
