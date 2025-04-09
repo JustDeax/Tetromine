@@ -1,4 +1,4 @@
-package com.justdeax.tetramine.game
+package com.justdeax.tetramine.util
 
 const val one = 1
 const val combo = 50

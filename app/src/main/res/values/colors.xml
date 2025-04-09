@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="empty">#FFFFFF</color>
-    <color name="cyan">#B2DFDB</color>
+    <color name="empty">#FFE6E6</color>
+    <color name="cyan">#45BFB4</color>
     <color name="yellow">#FFEB3B</color>
     <color name="magenta">#E040FB</color>
     <color name="orange">#FF9800</color>
     <color name="blue">#2196F3</color>
     <color name="green">#4CAF50</color>
     <color name="red">#F44336</color>
-    <color name="ghost">#4DA0A0A0</color>
+    <color name="ghost">#80000000</color>
     <color name="invisible">#00FFFFFF</color>
 
 </resources>

@@ -21,7 +21,7 @@ import com.justdeax.tetramine.game.TetromineGameViewModel
 import com.justdeax.tetramine.game.Tetromino
 import com.justdeax.tetramine.util.applySystemInsets
 import com.justdeax.tetramine.util.notAvailable
-import com.justdeax.tetramine.util.padArrayTo2x4
+import com.justdeax.tetramine.util.padArray2x4
 import com.justdeax.tetramine.util.setStatistics
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -69,7 +69,7 @@ class GameActivity : AppCompatActivity() {
                 repeatOnLifecycle(Lifecycle.State.STARTED) {
                     game.board.collectLatest { newBoard ->
                         board.updateBoard(newBoard)
-                        preview.updateBoard(padArrayTo2x4(game.previousPiece.shape))
+                        preview.updateBoard(padArray2x4(game.previousPiece.shape))
                         statistics.text = setStatistics(game.lines, game.score)
                         if (game.isGameOver)
                             showGameOver()
@@ -93,7 +93,7 @@ class GameActivity : AppCompatActivity() {
                 if (game.currentPiece.shape == Tetromino.TETROMINO_SHAPES[1])
                     arrayOf(intArrayOf(0, 2, 2, 0), intArrayOf(0, 2, 2, 0))
                 else
-                    padArrayTo2x4(game.currentPiece.shape)
+                    padArray2x4(game.currentPiece.shape)
             )
             statistics.text = setStatistics(game.lines, game.score)
             dialogGame?.show()

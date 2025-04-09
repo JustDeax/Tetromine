@@ -77,7 +77,7 @@ class TetromineGameViewModel(rows: Int, cols: Int): ViewModel() {
     fun dropPiece() {
         if (!tetromine.isGameOver) {
             tetromine.dropPiece()
-            tetromine.score += one
+            tetromine.score += com.justdeax.tetramine.util.one
             _board.value = tetromine.getBoardWithPiece()
         }
     }

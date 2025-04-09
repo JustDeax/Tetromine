@@ -81,16 +81,16 @@ class Tetromine(private val rows: Int, private val cols: Int) {
 
         if (clearedLines > 0) {
             comboCount += 1
-            score += combo * comboCount
+            score += com.justdeax.tetramine.util.combo * comboCount
 
             when (clearedLines) {
-                1 -> score += single
-                2 -> score += double
-                3 -> score += triple
-                4 -> score += tetromine
+                1 -> score += com.justdeax.tetramine.util.single
+                2 -> score += com.justdeax.tetramine.util.double
+                3 -> score += com.justdeax.tetramine.util.triple
+                4 -> score += com.justdeax.tetramine.util.tetromine
             }
             if (board.all { row -> row.all { it == 0 } })
-                score += perfectClear
+                score += com.justdeax.tetramine.util.perfectClear
         } else
             comboCount = -1
 

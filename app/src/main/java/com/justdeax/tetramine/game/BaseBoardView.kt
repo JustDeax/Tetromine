@@ -5,6 +5,7 @@ import android.graphics.Paint
 import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
+import com.justdeax.tetramine.util.dpToPx
 
 abstract class BaseBoardView(context: Context, attrs: AttributeSet? = null) : View(context, attrs) {
     protected abstract var rows: Int
@@ -12,8 +13,8 @@ abstract class BaseBoardView(context: Context, attrs: AttributeSet? = null) : Vi
     protected abstract var board: Array<IntArray>
 
     private var colors = intArrayOf()
-    private val cellSpacing = 4f
-    private val cornerRadius = 20f
+    private val cellSpacing = context.dpToPx(2f)
+    private val cornerRadius = context.dpToPx(8f)
     private val rect = RectF()
     private val paint = Paint().apply {
         style = Paint.Style.FILL
