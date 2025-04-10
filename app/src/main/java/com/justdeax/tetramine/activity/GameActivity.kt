@@ -72,8 +72,7 @@ class GameActivity : AppCompatActivity() {
                         board.updateBoard(newBoard)
                         preview.updateBoard(padArray2x4(game.previousPiece.shape))
                         statistics.text = setStatistics(game.lines, game.score)
-                        if (game.isGameOver)
-                            showGameOver()
+                        if (game.isGameOver) showGameOver()
                     }
                 }
             }
@@ -140,21 +139,19 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun helpDialog() {
-        val imageView = ImageView(this)
+        val inflater = LayoutInflater.from(this)
+        val view = inflater.inflate(R.layout.dialog_help, null)
+        val gifView = view.findViewById<ImageView>(R.id.gif_view)
 
         Glide.with(this)
             .asGif()
             .load(R.drawable.help_with_controllers)
-            .into(imageView)
+            .into(gifView)
 
-        val dialog = MaterialAlertDialogBuilder(this)
-            .setView(imageView)
-            .setPositiveButton("OK") { dialogInterface, _ ->
-                dialogInterface.dismiss()
-            }
-            .create()
-
-        dialog.show()
+        MaterialAlertDialogBuilder(this)
+            .setView(view)
+            .setPositiveButton("ОК", null)
+            .show()
     }
 
     @SuppressLint("ClickableViewAccessibility")
