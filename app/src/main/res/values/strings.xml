@@ -17,11 +17,11 @@
     <string name="restart">Restart</string>
     <string name="help">Help with controllers</string>
     <string name="help_text">
-"""To control a falling piece, just swipe your finger on the game board - the piece will move in the same direction as your finger. It is not necessary to touch the piece itself: moving on any part of the board will make it move in the direction your finger moves.
+"""To control a falling piece, just swipe your finger on the game board - the piece will move in the same direction as your finger. It is not necessary to touch the piece itself: moving on any part of the board will make it move in the direction your finger moves
 
-If you simply press the board (without swiping), the piece will rotate.
+If you simply press the board (without swiping), the piece will rotate
 
-Movement sensitivity can be set separately for left/right and down movement in the game settings.
+Movement sensitivity can be set separately for left/right and down movement in the game settings
 """</string>
 
     <string name="choose_mode">Choose mode</string>
@@ -63,7 +63,8 @@ Movement sensitivity can be set separately for left/right and down movement in t
 <!--    <string name="bi_directional_rotation">2-direction rotation</string>-->
 
     <string name="about_1">This is the mobile modern version of tetris</string>
-    <string name="about_2">"""This is a classic arcade puzzle game where you have to stack falling tetromino — 4-block pieces, create solid lines out of them and play for the score.
+    <string name="about_2">
+"""This is a classic arcade puzzle game where you have to stack falling tetromino — 4-block pieces, create solid lines out of them and play for the score
 The original mechanics are retained here, with smooth controls, but with a modern, minimalist design
 """</string>
     <string name="author">Author:</string>

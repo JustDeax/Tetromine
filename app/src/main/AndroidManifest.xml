@@ -14,6 +14,7 @@
         <activity
             android:name=".activity.GameActivity"
             android:exported="false" />
+
         <activity
             android:name=".activity.MainActivity"
             android:exported="true">
@@ -22,6 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

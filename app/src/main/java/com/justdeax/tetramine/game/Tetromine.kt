@@ -5,9 +5,9 @@ class Tetromine(private val rows: Int, private val cols: Int) {
     var currentPiece = Tetromino.emptyPiece() ; private set
     var previousPiece = Tetromino.randomPiece() ; private set
     var isGameOver = false ; private set
-    var comboCount = -1 ; private set
     var lines = 0 ; private set
     var score = 0
+    var comboCount = -1
 
     init { spawnPiece() }
 
@@ -18,6 +18,7 @@ class Tetromine(private val rows: Int, private val cols: Int) {
         isGameOver = false
         lines = 0
         score = 0
+        comboCount = -1
         spawnPiece()
     }
 
@@ -30,7 +31,7 @@ class Tetromine(private val rows: Int, private val cols: Int) {
 
     fun dropPiece() {
         if (!movePiece(1, 0)) {
-            placePiece()
+            applyPieceToBoard(board, currentPiece)
             clearLines()
             spawnPiece()
         }
@@ -38,19 +39,8 @@ class Tetromine(private val rows: Int, private val cols: Int) {
 
     fun moveLeft() = movePiece(0, -1)
     fun moveRight() = movePiece(0, 1)
-
-    fun rotatePiece() {
-        val rotated = currentPiece.rotate()
-        if (isValidMove(rotated, currentPiece.row, currentPiece.column)) {
-            currentPiece = rotated
-        } else {
-            val validKick = listOf(1,-1).firstOrNull { isValidMove(rotated, currentPiece.row, currentPiece.column + it) }
-            if (validKick != null) {
-                currentPiece = rotated
-                currentPiece.column += validKick
-            }
-        }
-    }
+    //fun rotateLeft() {}
+    fun rotateRight() = rotatePiece(currentPiece.rotate())
 
     private fun movePiece(dRow: Int, dCol: Int): Boolean {
         if (isValidMove(currentPiece, currentPiece.row + dRow, currentPiece.column + dCol)) {
@@ -61,16 +51,26 @@ class Tetromine(private val rows: Int, private val cols: Int) {
         return false
     }
 
+    private fun rotatePiece(rotated: Tetromino) {
+        if (isValidMove(rotated, currentPiece.row, currentPiece.column)) {
+            currentPiece = rotated
+        } else {
+            val validKick = listOf(1,-1).firstOrNull {
+                isValidMove(rotated, currentPiece.row, currentPiece.column + it)
+            }
+            if (validKick != null) {
+                currentPiece = rotated
+                currentPiece.column += validKick
+            }
+        }
+    }
+
     private fun isValidMove(piece: Tetromino, newRow: Int, newCol: Int): Boolean {
         return forEachCell(piece) { i, j ->
             val row = newRow + i
             val col = newCol + j
             row in 0 until rows && col in 0 until cols && board[row][col] == 0
         }
-    }
-
-    private fun placePiece() {
-        applyPieceToBoard(board, currentPiece)
     }
 
     private fun clearLines() {

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.justdeax.tetramine.R
 import com.justdeax.tetramine.databinding.FragmentMainMenuBinding
+import com.justdeax.tetramine.util.notAvailable
 
 class MainMenu : Fragment() {
     private var _binding: FragmentMainMenuBinding? = null
@@ -26,10 +27,9 @@ class MainMenu : Fragment() {
             chooseMode.setOnClickListener {
                 findNavController().navigate(R.id.action_mainMenu_to_chooseGame)
             }
-//        binding.resumeGame.setOnClickListener {
-//            val intent = Intent(requireContext(), GameActivity::class.java)
-//            startActivity(intent)
-//        }
+            binding.resumeGame.setOnClickListener {
+                notAvailable(requireContext(), getString(R.string.resume))
+            }
             statistics.setOnClickListener {
                 findNavController().navigate(R.id.action_mainMenu_to_statistics)
             }

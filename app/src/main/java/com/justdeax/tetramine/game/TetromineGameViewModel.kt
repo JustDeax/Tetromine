@@ -1,6 +1,7 @@
 package com.justdeax.tetramine.game
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.justdeax.tetramine.util.one
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -11,8 +12,8 @@ import kotlinx.coroutines.withContext
 
 class TetromineGameViewModel(rows: Int, cols: Int): ViewModel() {
     private val tetromine = Tetromine(rows, cols)
-    private var updateTime = 800L
-    private var dropSpeed = updateTime
+    private var startedSpeed = 800L
+    private var dropSpeed = startedSpeed
     private var gameJob: Job? = null
 
     val currentPiece get() = tetromine.currentPiece
@@ -24,7 +25,10 @@ class TetromineGameViewModel(rows: Int, cols: Int): ViewModel() {
     private val _board = MutableStateFlow(tetromine.getBoardWithPiece())
     val board = _board.asStateFlow()
 
-    fun startGame() { resetGame(); resumeGame() }
+    fun startGame() {
+        resetGame()
+        resumeGame()
+    }
 
     fun resumeGame() {
         if (!tetromine.isGameOver && gameJob == null)
@@ -49,41 +53,49 @@ class TetromineGameViewModel(rows: Int, cols: Int): ViewModel() {
     }
 
     fun resetGame() {
+        gameJob?.cancel()
+        gameJob = null
         tetromine.resetGame()
+        dropSpeed = startedSpeed
         _board.value = tetromine.getBoardWithPiece()
     }
 
     fun moveLeft() {
-        if (!tetromine.isGameOver) {
+        performAction {
             tetromine.moveLeft()
-            _board.value = tetromine.getBoardWithPiece()
         }
     }
 
     fun moveRight() {
-        if (!tetromine.isGameOver) {
+        performAction {
             tetromine.moveRight()
-            _board.value = tetromine.getBoardWithPiece()
         }
     }
 
-    fun rotatePiece() {
-        if (!tetromine.isGameOver) {
-            tetromine.rotatePiece()
-            _board.value = tetromine.getBoardWithPiece()
+    //fun rotateLeft() {}
+
+    fun rotateRight() {
+        performAction {
+            tetromine.rotateRight()
         }
     }
 
     fun dropPiece() {
-        if (!tetromine.isGameOver) {
+        performAction {
             tetromine.dropPiece()
-            tetromine.score += com.justdeax.tetramine.util.one
+            tetromine.score += one
+        }
+    }
+
+    private fun performAction(action: () -> Unit) {
+        if (!tetromine.isGameOver) {
+            action()
             _board.value = tetromine.getBoardWithPiece()
         }
     }
 
     override fun onCleared() {
-        super.onCleared()
         stopGame()
+        super.onCleared()
     }
 }

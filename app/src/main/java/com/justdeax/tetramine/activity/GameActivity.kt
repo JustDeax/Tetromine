@@ -1,5 +1,6 @@
 package com.justdeax.tetramine.activity
 import android.annotation.SuppressLint
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MotionEvent
@@ -22,6 +23,7 @@ import com.justdeax.tetramine.game.TetromineGameFactory
 import com.justdeax.tetramine.game.TetromineGameViewModel
 import com.justdeax.tetramine.game.Tetromino
 import com.justdeax.tetramine.util.applySystemInsets
+import com.justdeax.tetramine.util.findNumber
 import com.justdeax.tetramine.util.padArray2x4
 import com.justdeax.tetramine.util.setStatistics
 import kotlinx.coroutines.flow.collectLatest
@@ -43,8 +45,14 @@ class GameActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (resources.configuration.smallestScreenWidthDp < 600)
+            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         binding = ActivityGameBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         enableEdgeToEdge()
+
+        boardColor = intArrayOf(getColor(R.color.empty))
+        previewColor = intArrayOf(getColor(R.color.invisible))
         colors = intArrayOf(
             getColor(R.color.cyan), //I
             getColor(R.color.yellow), //O
@@ -55,11 +63,8 @@ class GameActivity : AppCompatActivity() {
             getColor(R.color.red), //Z
             getColor(R.color.ghost)
         )
-        boardColor = intArrayOf(getColor(R.color.empty))
-        previewColor = intArrayOf(getColor(R.color.invisible))
 
         binding.apply {
-            setContentView(root)
             main.applySystemInsets()
             board.setColors(boardColor + colors)
             preview.setColors(previewColor + colors)
@@ -88,12 +93,10 @@ class GameActivity : AppCompatActivity() {
         if (dialogGameBinding == null || dialogGame == null)
             initGameDialog()
         dialogGameBinding?.apply {
+            val tetrominoShape = findNumber(game.currentPiece.shape) - 1
             preview.setColors(previewColor + colors)
             preview.updateBoard(
-                if (game.currentPiece.shape == Tetromino.TETROMINO_SHAPES[1])
-                    arrayOf(intArrayOf(0, 2, 2, 0), intArrayOf(0, 2, 2, 0))
-                else
-                    padArray2x4(game.currentPiece.shape)
+                padArray2x4(Tetromino.TETROMINO_SHAPES[tetrominoShape])
             )
             statistics.text = setStatistics(game.lines, game.score)
             dialogGame?.show()
@@ -190,7 +193,7 @@ class GameActivity : AppCompatActivity() {
                     val diffX = abs(event.x - lastTouchX)
                     val diffY = abs(event.y - lastTouchY)
                     if (diffX < 3 && diffY < 3)
-                        game.rotatePiece()
+                        game.rotateRight()
                     lastTouchX = -1f
                     lastTouchY = -1f
                 }

@@ -1,5 +1,6 @@
 package com.justdeax.tetramine.activity
 import android.animation.ValueAnimator
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
@@ -15,10 +16,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (resources.configuration.smallestScreenWidthDp < 600)
+            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         enableEdgeToEdge()
         binding.apply {
-            setContentView(root)
             main.applySystemInsets()
             main.post {
                 screenHeight = main.height
@@ -30,7 +33,6 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         val navController = findNavController(R.id.nav_host_fragment)
-
         navController.addOnDestinationChangedListener { _, destination, _ ->
             if (destination.id == R.id.mainMenu) {
                 animateHeightChange(binding.logoLayout, screenHeight / 3)
@@ -40,22 +42,12 @@ class MainActivity : AppCompatActivity() {
                 binding.title.visibility = View.VISIBLE
             }
 
-            when (destination.id) {
-                R.id.mainMenu -> {
-                    binding.title.text = ""
-                }
-                R.id.chooseMode -> {
-                    binding.title.text = getString(R.string.choose_mode)
-                }
-                R.id.statistics -> {
-                    binding.title.text = getString(R.string.statistics)
-                }
-                R.id.settings -> {
-                    binding.title.text = getString(R.string.settings)
-                }
-                R.id.aboutGame -> {
-                    binding.title.text = getString(R.string.about_1)
-                }
+            binding.title.text = when (destination.id) {
+                R.id.chooseMode -> getString(R.string.choose_mode)
+                R.id.statistics -> getString(R.string.statistics)
+                R.id.settings -> getString(R.string.settings)
+                R.id.aboutGame -> getString(R.string.about_1)
+                else -> "" //R.id.mainMenu
             }
         }
     }
