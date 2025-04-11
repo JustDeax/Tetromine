@@ -16,6 +16,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.bumptech.glide.Glide
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.justdeax.tetramine.PreferenceManager.changeFirstLaunch
+import com.justdeax.tetramine.PreferenceManager.isFirstLaunch
 import com.justdeax.tetramine.R
 import com.justdeax.tetramine.databinding.ActivityGameBinding
 import com.justdeax.tetramine.databinding.DialogGameBinding
@@ -86,6 +88,10 @@ class GameActivity : AppCompatActivity() {
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() { showPauseDialog() }
         })
+        if (isFirstLaunch()) {
+            showHelpDialog()
+            changeFirstLaunch(false)
+        }
     }
 
     private fun showPauseDialog() {
@@ -130,7 +136,7 @@ class GameActivity : AppCompatActivity() {
                 dialogGame?.dismiss()
             }
             help.setOnClickListener {
-                helpDialog()
+                showHelpDialog()
             }
             exit.setOnClickListener {
                 dialogGame?.dismiss()
@@ -143,7 +149,7 @@ class GameActivity : AppCompatActivity() {
         }
     }
 
-    private fun helpDialog() {
+    private fun showHelpDialog() {
         val inflater = LayoutInflater.from(this)
         val view = inflater.inflate(R.layout.dialog_help, null)
         val gifView = view.findViewById<ImageView>(R.id.gif_view)

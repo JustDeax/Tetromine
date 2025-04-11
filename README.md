@@ -6,7 +6,7 @@
 <div align="center">
     <img src="./app/src/main/ic_launcher-playstore.png" width="128" height="128" style="display: block; margin: 0 auto"/>
     <h1>Tetramine</h1>
-    <p>The mobile modern version of tetris</p>
+    <h3>The mobile modern version of tetris</h3>
 </div>
 
 <div align="center">
@@ -15,7 +15,6 @@
     </div>
 </div>
 
-### Tetramine
 This is the mobile modern version of tetris
 
 Classic arcade puzzle game where you have to stack falling tetromino — 4-block pieces, create solid lines out of them and play for the score
@@ -24,3 +23,12 @@ The original mechanics are retained here, with smooth controls, but with a moder
 ### Feature
 - [ ] Modern Material Design 3
 - [ ] MVVM, ViewModel
+- [ ] Fast and responsive UI
+- [ ] Easy score system
+- [ ] Ghost piece
+- [ ] Comfortable control setup
+
+### TODO
+- [ ] Detailed statistics
+- [ ] Styling and themes
+- [ ] Multiple game modes
