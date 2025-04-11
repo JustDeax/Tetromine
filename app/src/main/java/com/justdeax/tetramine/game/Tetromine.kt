@@ -24,7 +24,9 @@ class Tetromine(private val rows: Int, private val cols: Int) {
 
     fun getBoardWithPiece(): Array<IntArray> {
         val board = board.map { it.clone() }.toTypedArray()
-        applyPieceToBoard(board, ghostPiece(), true)
+        val ghostPiece = ghostPiece()
+        if (currentPiece.row - ghostPiece.row > 2)
+            applyPieceToBoard(board, ghostPiece, true)
         applyPieceToBoard(board, currentPiece)
         return board
     }
@@ -43,24 +45,24 @@ class Tetromine(private val rows: Int, private val cols: Int) {
     fun rotateRight() = rotatePiece(currentPiece.rotate())
 
     private fun movePiece(dRow: Int, dCol: Int): Boolean {
-        if (isValidMove(currentPiece, currentPiece.row + dRow, currentPiece.column + dCol)) {
+        if (isValidMove(currentPiece, currentPiece.row + dRow, currentPiece.col + dCol)) {
             currentPiece.row += dRow
-            currentPiece.column += dCol
+            currentPiece.col += dCol
             return true
         }
         return false
     }
 
     private fun rotatePiece(rotated: Tetromino) {
-        if (isValidMove(rotated, currentPiece.row, currentPiece.column)) {
+        if (isValidMove(rotated, currentPiece.row, currentPiece.col)) {
             currentPiece = rotated
         } else {
             val validKick = listOf(1,-1).firstOrNull {
-                isValidMove(rotated, currentPiece.row, currentPiece.column + it)
+                isValidMove(rotated, currentPiece.row, currentPiece.col + it)
             }
             if (validKick != null) {
                 currentPiece = rotated
-                currentPiece.column += validKick
+                currentPiece.col += validKick
             }
         }
     }
@@ -91,8 +93,9 @@ class Tetromine(private val rows: Int, private val cols: Int) {
             }
             if (board.all { row -> row.all { it == 0 } })
                 score += com.justdeax.tetramine.util.perfectClear
-        } else
+        } else {
             comboCount = -1
+        }
 
         lines += clearedLines
     }
@@ -101,14 +104,14 @@ class Tetromine(private val rows: Int, private val cols: Int) {
         currentPiece = previousPiece
         previousPiece = Tetromino.randomPiece()
         currentPiece.row = 0
-        currentPiece.column = cols / 2 - (currentPiece.shape[0].size / 2)
-        if (!isValidMove(currentPiece, currentPiece.row, currentPiece.column))
+        currentPiece.col = cols / 2 - (currentPiece.shape[0].size / 2)
+        if (!isValidMove(currentPiece, currentPiece.row, currentPiece.col))
             isGameOver = true
     }
 
     private fun ghostPiece(): Tetromino {
         val ghost = currentPiece.copy()
-        while (isValidMove(ghost, ghost.row + 1, ghost.column))
+        while (isValidMove(ghost, ghost.row + 1, ghost.col))
             ghost.row += 1
         return ghost
     }
@@ -116,7 +119,7 @@ class Tetromine(private val rows: Int, private val cols: Int) {
     private fun applyPieceToBoard(board: Array<IntArray>, piece: Tetromino, isGhost: Boolean = false) {
         forEachCell(piece) { i, j ->
             val row = piece.row + i
-            val col = piece.column + j
+            val col = piece.col + j
             if (row in board.indices && col in board[0].indices)
                 board[row][col] = if (isGhost) 8 else piece.shape[i][j]
             true

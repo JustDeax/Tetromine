@@ -63,23 +63,23 @@
 
         <Button
             android:id="@+id/exit"
-            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/exit"
             android:padding="8dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/restart"
-            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/restart"
             android:padding="8dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            style="?android:attr/buttonBarButtonStyle" />
 
     </LinearLayout>
 

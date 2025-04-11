@@ -159,7 +159,7 @@ class GameActivity : AppCompatActivity() {
 
     @SuppressLint("ClickableViewAccessibility")
     private fun View.setControls() {
-        val xSensitivity = 0.6
+        val xSensitivity = 0.65
         val ySensitivity = 0.40
         val halfCols = cols / 2
         val halfRows = rows / 2
@@ -178,9 +178,9 @@ class GameActivity : AppCompatActivity() {
                     val thresholdY = this.height / halfRows * ySensitivity
 
                     if (abs(diffX) > thresholdX && abs(diffY) < thresholdY) {
-                        if (diffX > 0)
+                        if (diffX > 3)
                             game.moveRight()
-                        else
+                        else if (diffX < 3)
                             game.moveLeft()
                         lastTouchX = event.x
                     } else if (diffY > thresholdY) {

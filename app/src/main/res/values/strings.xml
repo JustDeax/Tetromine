@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Tetramine</string>
-    <string name="version">Version: 0.6</string>
+    <string name="version">Version: 0.7</string>
     <string name="not_available">not available</string>
 
     <string name="play">Play</string>
@@ -10,8 +10,8 @@
     <string name="about">About</string>
 
     <string name="game_over" translatable="false">GAME OVER</string>
-    <string name="o_score_o" translatable="false">Score</string>
-    <string name="o_lines_o" translatable="false">Lines</string>
+    <string name="score_0" translatable="false">Score</string>
+    <string name="lines_0" translatable="false">Lines</string>
     <string name="view_game">View Game</string>
     <string name="exit">Exit</string>
     <string name="restart">Restart</string>

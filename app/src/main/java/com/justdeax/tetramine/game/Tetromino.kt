@@ -1,17 +1,17 @@
 package com.justdeax.tetramine.game
 
-class Tetromino(val shape: Array<IntArray>, var row: Int = 0, var column: Int = 0) {
+class Tetromino(val shape: Array<IntArray>, var row: Int = 0, var col: Int = 0) {
     fun rotate(): Tetromino {
         val newShape = Array(shape[0].size) { IntArray(shape.size) }
         for (i in shape.indices)
             for (j in shape[i].indices)
                 newShape[j][shape.size - 1 - i] = shape[i][j]
-        return Tetromino(newShape, row, column)
+        return Tetromino(newShape, row, col)
     }
 
     fun copy(): Tetromino {
         val newShape = shape.map { it.clone() }.toTypedArray()
-        return Tetromino(newShape, row, column)
+        return Tetromino(newShape, row, col)
     }
 
     companion object {

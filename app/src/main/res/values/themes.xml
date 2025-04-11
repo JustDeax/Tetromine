@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <color name="ic_launcher_background">#000000</color>
 
     <style name="Theme.Dynamic" parent="Theme.Material3.DynamicColors.DayNight.NoActionBar" />
@@ -39,16 +39,18 @@
     <style name="StatisticsTitle" parent="TextAppearance.AppCompat.Title">
         <item name="android:textSize">32sp</item>
         <item name="android:layout_margin">8dp</item>
+        <item name="android:singleLine">true</item>
     </style>
 
     <style name="StatisticsNumber" parent="StatisticsTitle">
         <item name="android:textColor">?attr/colorOnPrimaryContainer</item>
+        <item name="android:textAlignment">textEnd</item>
     </style>
 
     <style name="GameStatisticsText">
         <item name="android:fontFamily">monospace</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">18dp</item>
+        <item name="android:textSize" tools:ignore="SpUsage">18dp</item>
         <item name="android:layout_gravity">start|center_vertical</item>
     </style>
 

@@ -6,7 +6,7 @@ import com.google.android.material.color.DynamicColors
 class App : Application() {
     override fun onCreate() {
         super.onCreate()
-        val (theme, dynamic) = 'L' to true
+        val (theme, dynamic) = 'S' to true
         AppCompatDelegate.setDefaultNightMode(
             when (theme) {
                 'L' -> AppCompatDelegate.MODE_NIGHT_NO
