@@ -10,19 +10,19 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class TetromineGameViewModel(rows: Int, cols: Int): ViewModel() {
-    private val tetromine = Tetromine(rows, cols)
+class TetramineGameViewModel(rows: Int, cols: Int): ViewModel() {
+    private val tetramine = Tetramine(rows, cols)
     private var startedSpeed = 800L
     private var dropSpeed = startedSpeed
     private var gameJob: Job? = null
 
-    val currentPiece get() = tetromine.currentPiece
-    val previousPiece get() = tetromine.previousPiece
-    val isGameOver get() = tetromine.isGameOver
-    val lines get() = tetromine.lines
-    val score get() = tetromine.score
+    val currentPiece get() = tetramine.currentPiece
+    val previousPiece get() = tetramine.previousPiece
+    val isGameOver get() = tetramine.isGameOver
+    val lines get() = tetramine.lines
+    val score get() = tetramine.score
 
-    private val _board = MutableStateFlow(tetromine.getBoardWithPiece())
+    private val _board = MutableStateFlow(tetramine.getBoardWithPiece())
     val board = _board.asStateFlow()
 
     fun startGame() {
@@ -31,13 +31,13 @@ class TetromineGameViewModel(rows: Int, cols: Int): ViewModel() {
     }
 
     fun resumeGame() {
-        if (!tetromine.isGameOver && gameJob == null)
+        if (!tetramine.isGameOver && gameJob == null)
             gameJob = viewModelScope.launch(Dispatchers.Default) {
-                while (!tetromine.isGameOver) {
+                while (!tetramine.isGameOver) {
                     delay(dropSpeed)
                     withContext(Dispatchers.Main) {
-                        tetromine.dropPiece()
-                        _board.value = tetromine.getBoardWithPiece()
+                        tetramine.dropPiece()
+                        _board.value = tetramine.getBoardWithPiece()
                     }
                 }
                 withContext(Dispatchers.Main) {
@@ -49,26 +49,26 @@ class TetromineGameViewModel(rows: Int, cols: Int): ViewModel() {
     fun stopGame() {
         gameJob?.cancel()
         gameJob = null
-        _board.value = tetromine.getBoardWithPiece()
+        _board.value = tetramine.getBoardWithPiece()
     }
 
     fun resetGame() {
         gameJob?.cancel()
         gameJob = null
-        tetromine.resetGame()
+        tetramine.resetGame()
         dropSpeed = startedSpeed
-        _board.value = tetromine.getBoardWithPiece()
+        _board.value = tetramine.getBoardWithPiece()
     }
 
     fun moveLeft() {
         performAction {
-            tetromine.moveLeft()
+            tetramine.moveLeft()
         }
     }
 
     fun moveRight() {
         performAction {
-            tetromine.moveRight()
+            tetramine.moveRight()
         }
     }
 
@@ -76,21 +76,21 @@ class TetromineGameViewModel(rows: Int, cols: Int): ViewModel() {
 
     fun rotateRight() {
         performAction {
-            tetromine.rotateRight()
+            tetramine.rotateRight()
         }
     }
 
     fun dropPiece() {
         performAction {
-            tetromine.dropPiece()
-            tetromine.score += one
+            tetramine.dropPiece()
+            tetramine.score += one
         }
     }
 
     private fun performAction(action: () -> Unit) {
-        if (!tetromine.isGameOver) {
+        if (!tetramine.isGameOver) {
             action()
-            _board.value = tetromine.getBoardWithPiece()
+            _board.value = tetramine.getBoardWithPiece()
         }
     }
 

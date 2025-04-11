@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textSize="45sp"
-        android:text="@string/game_over"
+        tools:text="GAME OVER"
         tools:visibility="visible"
         style="@style/MonospacedTitle" />
 

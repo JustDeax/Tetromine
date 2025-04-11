@@ -1,6 +1,6 @@
 package com.justdeax.tetramine.game
 
-class Tetromine(private val rows: Int, private val cols: Int) {
+class Tetramine(private val rows: Int, private val cols: Int) {
     private var board = Array(rows) { IntArray(cols) }
     var currentPiece = Tetromino.emptyPiece() ; private set
     var previousPiece = Tetromino.randomPiece() ; private set
@@ -24,9 +24,7 @@ class Tetromine(private val rows: Int, private val cols: Int) {
 
     fun getBoardWithPiece(): Array<IntArray> {
         val board = board.map { it.clone() }.toTypedArray()
-        val ghostPiece = ghostPiece()
-        if (currentPiece.row - ghostPiece.row > 2)
-            applyPieceToBoard(board, ghostPiece, true)
+        applyPieceToBoard(board, ghostPiece(), true)
         applyPieceToBoard(board, currentPiece)
         return board
     }
@@ -89,7 +87,7 @@ class Tetromine(private val rows: Int, private val cols: Int) {
                 1 -> score += com.justdeax.tetramine.util.single
                 2 -> score += com.justdeax.tetramine.util.double
                 3 -> score += com.justdeax.tetramine.util.triple
-                4 -> score += com.justdeax.tetramine.util.tetromine
+                4 -> score += com.justdeax.tetramine.util.tetramine
             }
             if (board.all { row -> row.all { it == 0 } })
                 score += com.justdeax.tetramine.util.perfectClear

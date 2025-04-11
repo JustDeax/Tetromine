@@ -19,8 +19,8 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.justdeax.tetramine.R
 import com.justdeax.tetramine.databinding.ActivityGameBinding
 import com.justdeax.tetramine.databinding.DialogGameBinding
-import com.justdeax.tetramine.game.TetromineGameFactory
-import com.justdeax.tetramine.game.TetromineGameViewModel
+import com.justdeax.tetramine.game.TetramineGameFactory
+import com.justdeax.tetramine.game.TetramineGameViewModel
 import com.justdeax.tetramine.game.Tetromino
 import com.justdeax.tetramine.util.applySystemInsets
 import com.justdeax.tetramine.util.findNumber
@@ -39,8 +39,8 @@ class GameActivity : AppCompatActivity() {
     private var previewColor = intArrayOf()
     private val rows = 20
     private val cols = 10
-    private val game: TetromineGameViewModel by viewModels {
-        TetromineGameFactory(rows, cols)
+    private val game: TetramineGameViewModel by viewModels {
+        TetramineGameFactory(rows, cols)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -107,9 +107,11 @@ class GameActivity : AppCompatActivity() {
         if (dialogGameBinding == null || dialogGame == null)
             initGameDialog()
         dialogGameBinding?.apply {
+            val gameOverText = "GAME OVER"
+            gameOver.text = gameOverText
+            resume.text = getString(R.string.view_game)
             preview.visibility = View.GONE
             gameOver.visibility = View.VISIBLE
-            resume.text = getString(R.string.view_game)
             statistics.text = setStatistics(game.lines, game.score)
             dialogGame?.setOnDismissListener { dialogGame = null }
             dialogGame?.show()
@@ -159,7 +161,7 @@ class GameActivity : AppCompatActivity() {
 
     @SuppressLint("ClickableViewAccessibility")
     private fun View.setControls() {
-        val xSensitivity = 0.65
+        val xSensitivity = 0.55
         val ySensitivity = 0.40
         val halfCols = cols / 2
         val halfRows = rows / 2

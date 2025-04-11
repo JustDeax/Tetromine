@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">Tetramine</string>
+    <string name="version">Version: 0.7</string>
+    <string name="not_available">nicht verfügbar</string>
+
+    <string name="play">Spielen</string>
+    <string name="resume">Spiel fortsetzen</string>
+    <string name="statistics">Statistiken</string>
+    <string name="settings">Einstellungen &amp; Aussehen</string>
+    <string name="about">Über</string>
+
+    <string name="view_game">Spiel ansehen</string>
+    <string name="exit">Beenden</string>
+    <string name="restart">Neustart</string>
+    <string name="help">Hilfe zur Steuerung</string>
+    <string name="help_text">
+"""Um ein fallendes Teil zu steuern, wischen Sie einfach mit dem Finger über das Spielfeld – das Teil bewegt sich in dieselbe Richtung. Es ist nicht notwendig, das Teil direkt zu berühren: Ein Wischen an beliebiger Stelle bewegt es entsprechend.
+
+Wenn Sie nur tippen (ohne zu wischen), dreht sich das Teil.
+
+Die Empfindlichkeit der Bewegungen kann in den Einstellungen separat für Links/Rechts und Abwärts angepasst werden.
+"""</string>
+
+    <string name="choose_mode">Modus wählen</string>
+    <string name="classic_mode">Klassisches Spiel</string>
+    <string name="classic_mode_desc">Klassische Version des Spiels</string>
+    <string name="practice_mode">Übungsmodus</string>
+    <string name="practice_mode_desc">Trainiere im eigenen Tempo oder entspanne dich</string>
+    <string name="sprint_mode">Sprint: 40 Reihen</string>
+    <string name="sprint_mode_desc">Wie schnell kannst du 40 Reihen löschen?</string>
+    <string name="modern_mode">Modern mit Einfrieren</string>
+    <string name="modern_mode_desc">Moderne Variante mit zufälliger Geschwindigkeit, Einfrieren und Explosionen</string>
+
+    <string name="page_total">Gesamt</string>
+    <string name="page_best">Bestes</string>
+    <string name="score">Punkte</string>
+    <string name="lines">Reihen</string>
+    <string name="pieces">Teile</string>
+    <string name="four_lines">Vier Reihen</string>
+    <string name="t_spins">T-Drehungen</string>
+    <string name="combo">Kombos</string>
+    <string name="zero">0</string>
+
+    <string name="about_1">Dies ist die moderne mobile Version von Tetris</string>
+    <string name="about_2">
+"""Klassisches Arcade-Puzzlespiel, bei dem du fallende Tetrominos – Figuren aus 4 Blöcken – stapelst, um vollständige Reihen zu bilden und Punkte zu erzielen.
+Die ursprüngliche Mechanik bleibt erhalten, mit flüssiger Steuerung und modernem, minimalistischem Design.
+"""</string>
+    <string name="author">Autor:</string>
+    <string name="source_code">Quellcode:</string>
+</resources>

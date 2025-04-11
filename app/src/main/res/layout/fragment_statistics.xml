@@ -32,7 +32,7 @@
             android:id="@+id/one_game"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/page_game"
+            android:text="@string/page_best"
             android:textSize="22sp"
             app:shapeAppearance="@style/ShapeAppearanceOverlay.Material3.Corner.Right"
             style="@style/Widget.MaterialComponents.Chip.Choice" />

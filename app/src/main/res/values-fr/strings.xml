@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">Tetramine</string>
+    <string name="version">Version: 0.7</string>
+    <string name="not_available">non disponible</string>
+
+    <string name="play">Jouer</string>
+    <string name="resume">Reprendre la partie</string>
+    <string name="statistics">Statistiques</string>
+    <string name="settings">Paramètres &amp; Apparence</string>
+    <string name="about">À propos</string>
+
+    <string name="view_game">Voir la partie</string>
+    <string name="exit">Quitter</string>
+    <string name="restart">Recommencer</string>
+    <string name="help">Aide pour les contrôles</string>
+    <string name="help_text">
+"""Pour contrôler une pièce en chute, faites simplement glisser votre doigt sur le plateau – la pièce suivra la direction de votre geste. Il n'est pas nécessaire de toucher la pièce elle-même : glisser n'importe où fera bouger la pièce.
+
+Un simple appui (sans glisser) fera pivoter la pièce.
+
+La sensibilité du mouvement peut être ajustée séparément pour les directions gauche/droite et vers le bas dans les paramètres.
+"""</string>
+
+    <string name="choose_mode">Choisir un mode</string>
+    <string name="classic_mode">Jeu classique</string>
+    <string name="classic_mode_desc">Version classique du jeu</string>
+    <string name="practice_mode">Mode d\'entraînement</string>
+    <string name="practice_mode_desc">Entraînez-vous à votre rythme ou détendez-vous</string>
+    <string name="sprint_mode">Sprint : 40 lignes</string>
+    <string name="sprint_mode_desc">À quelle vitesse pouvez-vous effacer 40 lignes ?</string>
+    <string name="modern_mode">Moderne avec gel</string>
+    <string name="modern_mode_desc">Mode moderne avec vitesse aléatoire, gels et explosions</string>
+
+    <string name="page_total">Total</string>
+    <string name="page_best">Meilleur</string>
+    <string name="score">Score</string>
+    <string name="lines">Lignes</string>
+    <string name="pieces">Pièces</string>
+    <string name="four_lines">Quatre lignes</string>
+    <string name="t_spins">Rotations en T</string>
+    <string name="combo">Combo</string>
+    <string name="zero">0</string>
+
+    <string name="about_1">C’est la version mobile moderne de Tetris</string>
+    <string name="about_2">
+"""Jeu de puzzle d'arcade classique où vous devez empiler des tétraminos — pièces de 4 blocs — pour créer des lignes complètes et marquer des points.
+Les mécaniques d’origine sont conservées, avec un contrôle fluide et un design minimaliste moderne.
+"""</string>
+    <string name="author">Auteur:</string>
+    <string name="source_code">Code source:</string>
+</resources>

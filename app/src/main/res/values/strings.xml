@@ -9,9 +9,6 @@
     <string name="settings">Settings &amp; Appearance</string>
     <string name="about">About</string>
 
-    <string name="game_over" translatable="false">GAME OVER</string>
-    <string name="score_0" translatable="false">Score</string>
-    <string name="lines_0" translatable="false">Lines</string>
     <string name="view_game">View Game</string>
     <string name="exit">Exit</string>
     <string name="restart">Restart</string>
@@ -32,10 +29,10 @@ Movement sensitivity can be set separately for left/right and down movement in t
     <string name="sprint_mode">Sprint 40 Line</string>
     <string name="sprint_mode_desc">How fast can you clear 40 lines</string>
     <string name="modern_mode">Modern With Freeze</string>
-    <string name="modern_mode_desc">Modern Game with random speed, freezes and bombs</string>
+    <string name="modern_mode_desc">Modern Game with random speed, freezes and explosions</string>
 
     <string name="page_total">Total</string>
-    <string name="page_game">Best</string>
+    <string name="page_best">Best</string>
     <string name="score">Score</string>
     <string name="lines">Lines</string>
     <string name="pieces">Pieces</string>
@@ -64,7 +61,7 @@ Movement sensitivity can be set separately for left/right and down movement in t
 
     <string name="about_1">This is the mobile modern version of tetris</string>
     <string name="about_2">
-"""This is a classic arcade puzzle game where you have to stack falling tetromino — 4-block pieces, create solid lines out of them and play for the score
+"""Classic arcade puzzle game where you have to stack falling tetromino — 4-block pieces, create solid lines out of them and play for the score
 The original mechanics are retained here, with smooth controls, but with a modern, minimalist design
 """</string>
     <string name="author">Author:</string>
